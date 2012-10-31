@@ -54,7 +54,7 @@ class Episode < ActiveRecord::Base
             :match_mode => :any, :page => 1, :per_page => 5,
             :field_weights => { :name => 20, :description => 15, :notes => 5, :tag_names => 10 })
     else
-      self.class.published.limit(5).primitive_search(name, "OR")
+      self.class.published.where("id != ?", self.id).limit(5).primitive_search(name, "OR")
     end
   rescue ThinkingSphinx::ConnectionError => e
     APP_CONFIG['thinking_sphinx'] = false

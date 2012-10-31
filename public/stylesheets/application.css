@@ -753,7 +753,7 @@ padding: 4px;
 .comment .avatar {
   float: left;
   border: solid 1px #CCC;
-  color: #FFF;
+  background-color: #FFF;
   padding: 4px;
 }
 

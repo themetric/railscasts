@@ -8,6 +8,16 @@ task :asciicasts => :environment do
   end
 end
 
+desc "Removes tags that are not used by any episodes" 
+task :remove_orphan_tags => :environment do 
+    removed_count = 0 
+    Tag.all.each do |tag|
+        tag.destroy unless tag.episodes.any? 
+        removed_count += 1 
+    end 
+    puts "Done...removed #{removed_count} tag(s)." 
+end 
+
 desc "Reset position attribute for all comments, sometimes it gets out of sync"
 task :reset_comment_positions => :environment do
   Episode.find_each do |episode|

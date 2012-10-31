@@ -167,9 +167,9 @@ label.check_box {
   padding: 8px 100px;
   background-color: #333;
   border-top: solid 1px #FFF;
-  background: -webkit-gradient(linear, left top, left bottom, from(#5C5C5C), to(#111));
-  background: -moz-linear-gradient(top,  #5C5C5C, #111);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5C5C5C', endColorstr='#111');
+  background: -webkit-gradient(linear, left top, left bottom, from(#61B5D5), to(#267E9F));
+  background: -moz-linear-gradient(top,  #61B5D5, #267E9F);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61B5D5', endColorstr='#267E9F');
   border-bottom: solid 3px #DE9F00;
   margin-bottom: 15px;
 }
@@ -182,11 +182,17 @@ label.check_box {
 #nav_bar .nav li {
   padding-left: 25px;
   font-size: 14px;
-  color: #BBB;
+  color: #000;
 }
 
 #nav_bar .nav li a {
   color: #FFF;
+}
+
+#nav_bar #search {
+border-radius: 5px; 
+font-size: 15px; 
+padding: 4px; 
 }
 
 #main {
@@ -416,6 +422,12 @@ label.check_box {
 
 .side .banner {
   margin-top: 15px;
+}
+
+.side .banner img {
+  max-width: 150px; 
+  display:block; 
+  margin: 0px auto; 
 }
 
 .episode_views {

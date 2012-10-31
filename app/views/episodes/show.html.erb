@@ -44,7 +44,7 @@
   </div>
   <ul class="nav horizontal">
     <li class="selected"><%= tab_link "Show Notes", :view => nil %></li>
-    <li><%= tab_link pluralize(@episode.comments.size, "Comment"), :view => "comments" %></li>
+    <li><%= tab_link pluralize(@episode.comments.count, "Comment"), :view => "comments" %></li>
     <li><%= tab_link "Similar Episodes", :view => "similar" %></li>
     <%= content_tag :li, link_to("Next Episode >", @episode.next), :class => "next" if !@episode.last_published? && @episode.next %>
     <%= content_tag :li, link_to("< Previous Episode", @episode.previous), :class => "previous" if @episode.previous %>

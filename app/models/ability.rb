@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    # A user that is not logged in 
     can :read, :episodes, ["published_at <= ?", Time.zone.now] do |episode|
       episode.published_at <= Time.now.utc
     end
@@ -13,6 +14,7 @@ class Ability
       can :logout, :users
       can :update, :users, :id => user.id
       unless user.banned?
+        # Don't allow banned users to do any kind of commenting or revision 
         can :create, :comments
         can [:update, :destroy], :comments do |comment|
           comment.created_at >= 15.minutes.ago && comment.user_id == user.id

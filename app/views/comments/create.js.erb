@@ -8,3 +8,4 @@
 <% else %>
   container.children("#new_comment").replaceWith("<%= escape_javascript render(@comment) %>");
 <% end %>
+$("#new_comment").show()

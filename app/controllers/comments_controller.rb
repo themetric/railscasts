@@ -44,11 +44,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
-    flash[:notice] = "Deleted comment. #{undo_link}"
     respond_to do |format|
-      format.html { redirect_to episode_path(@comment.episode, :view => "comments") }
-      format.js
+     if @comment.destroy
+        flash[:notice] = "Deleted comment. #{undo_link}"
+        format.js 
+        format.html { redirect_to episode_path(@comment.episode, :view => "comments") }              
+     else
+        flash[:error] = "Your comment could not be deleted" 
+     end 
     end
   end
 

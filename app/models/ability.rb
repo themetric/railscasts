@@ -17,7 +17,7 @@ class Ability
         # Don't allow banned users to do any kind of commenting or revision 
         can :create, :comments
         can [:update, :destroy], :comments do |comment|
-          comment.created_at >= 15.minutes.ago && comment.user_id == user.id
+          comment.user_id == user.id
         end
       end
 

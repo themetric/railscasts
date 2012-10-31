@@ -18,13 +18,13 @@ task :remove_orphan_tags => :environment do
     puts "Done...removed #{removed_count} tag(s)." 
 end 
 
-desc "Reset position attribute for all comments, sometimes it gets out of sync"
-task :reset_comment_positions => :environment do
+desc "Update position and comments_count for all comments and episodes, sometimes they get out of sync"
+task :update_counts_and_positions => :environment do
   Episode.find_each do |episode|
     episode.comments.all(:order => "created_at").each_with_index do |comment, index|
       comment.update_attribute(:position, index+1)
     end
-    episode.update_attribute(:comments_count, episode.comments.count)
+    Episode.reset_counters(episode.id, :comments)
   end
 end
 

@@ -6,14 +6,17 @@
     <meta name="description" content="Short Ruby on Rails screencasts containing tips, tricks and tutorials. Great for both novice and experienced web developers." />
     <meta name="keywords" content="rails, ruby on rails, screencasts, railscast, railscasts, tips, tricks, tutorials, training, podcasts, programming" />
     <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" />
-    <%= stylesheet_link_tag "application", "coderay" %>
-    <%= javascript_include_tag "jquery.min", "rails", "http://cdn.sublimevideo.net/js/3s7oes9q.js", "application" %>
+    <%= stylesheet_link_tag "application", "coderay" %>        
+    <%= javascript_include_tag "http://cdn.sublimevideo.net/js/3s7oes9q.js", "application" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="top">
       <div class="logo"><%= link_to image_tag("railscasts_logo.png", :size => "375x80", :alt => "MarklinStop.com"), root_path %></div>      
+      <div class="account-nav">
+      <%= !current_user.blank? ? link_to(current_user.name, user_path(current_user)) : link_to("Log in", login_path) %> 
+      </div>
       <ul class="subscribe horizontal">
         <li>
           <%= link_to image_tag("icons/itunes.png", :size => "34x34"), "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=218282043" %>

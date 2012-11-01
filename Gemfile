@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem "rails", "3.0.10"
+gem "rails", "3.1.0"
 gem "mysql2"
 gem "redcarpet"
 gem "coderay"
@@ -13,6 +13,9 @@ gem "exception_notification", :git => "git://github.com/rails/exception_notifica
 gem "ancestry"
 gem "cancan", :git => "git://github.com/ryanb/cancan.git", :branch => "2.0"
 gem "paper_trail"
+gem "therubyracer"
+gem "execjs" 
+gem "omniauth-github" 
 
 group :development, :test do
   gem "rspec-rails"
@@ -33,4 +36,12 @@ group :development do
   gem "thin"
   gem "nifty-generators"
   gem "capistrano"
+end
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', " ~> 3.1.0"
+  gem 'coffee-rails', " ~> 3.1.0"
+  gem 'uglifier'
 end

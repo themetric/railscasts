@@ -4,6 +4,15 @@ Railscasts::Application.configure do
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
+  
+  # Compress JavaScript and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
@@ -49,7 +58,7 @@ Railscasts::Application.configure do
 
   config.action_mailer.delivery_method = :sendmail
   ignore_exceptions = ExceptionNotifier.default_ignore_exceptions + [ActionView::MissingTemplate]
-  config.middleware.use ExceptionNotifier, :email_prefix => "[ERROR] ", :sender_address => 'noreply@railscasts.com', :exception_recipients => "ryan@railscasts.com", :ignore_exceptions => ignore_exceptions
+  config.middleware.use ExceptionNotifier, :email_prefix => "[ERROR] ", :sender_address => 'marklinstop@gmail.com', :exception_recipients => "marklinstop@gmail.com", :ignore_exceptions => ignore_exceptions
 
-  config.action_mailer.default_url_options = { :host => "railscasts.com" }
+  config.action_mailer.default_url_options = { :host => "new.marklinstop.com" }
 end

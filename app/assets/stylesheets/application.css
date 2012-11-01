@@ -1,3 +1,8 @@
+/*
+*= require_self
+*= require_tree .
+*/
+
 body {
   background-color: #FFF;
   font-family: Verdana, Helvetica, Arial;
@@ -138,6 +143,12 @@ label.check_box {
   padding-bottom: 10px;
 }
 
+#top .account-nav {
+  position:absolute; 
+  bottom: 100px; 
+  right: 100px; 
+}
+
 #top .subscribe {
   position: absolute;
   bottom: 10px;
@@ -187,12 +198,6 @@ label.check_box {
 
 #nav_bar .nav li a {
   color: #FFF;
-}
-
-#nav_bar #search {
-border-radius: 5px; 
-font-size: 15px; 
-padding: 4px; 
 }
 
 #main {
@@ -516,6 +521,14 @@ padding: 4px;
   background: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#CCC));
   background: -moz-linear-gradient(top,  #EEE, #CCC);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE', endColorstr='#CCC');
+}
+
+/*** FORMS and BUTTONS ***/
+
+input#search, input#comment_search {
+  border-radius: 5px; 
+  font-size: 15px; 
+  padding: 4px; 
 }
 
 

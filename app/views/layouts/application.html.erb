@@ -15,7 +15,13 @@
     <div id="top">
       <div class="logo"><%= link_to image_tag("railscasts_logo.png", :size => "375x80", :alt => "MarklinStop.com"), root_path %></div>      
       <div class="account-nav">
-      <%= !current_user.blank? ? link_to(current_user.name, user_path(current_user)) : link_to("Log in", login_path) %> 
+      <% if user_signed_in? %>
+        <%= link_to current_user.name, profile_users_path(current_user) %>
+        <br />
+        <%= link_to "log out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to("Log in", new_user_session_path) %> 
+      <% end %>      
       </div>
       <ul class="subscribe horizontal">
         <li>

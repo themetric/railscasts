@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem "rails", "3.1.0"
 gem "mysql2"
+gem "pg" 
 gem "redcarpet"
 gem "coderay"
 gem "thinking-sphinx", ">= 2.0.1", :require => "thinking_sphinx"
@@ -16,6 +17,7 @@ gem "paper_trail"
 gem "therubyracer"
 gem "execjs" 
 gem "omniauth-github" 
+gem "devise" 
 
 group :development, :test do
   gem "rspec-rails"

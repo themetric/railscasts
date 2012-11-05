@@ -3,8 +3,8 @@
     <span class="position">New comment as</span>
   <% end %>
   <span class="name">
-    <% if comment.user %>
-      <%= link_to comment.user.display_name, comment.user %>
+    <% if comment.user %>      
+      <%= link_to comment.user.display_name, profile_users_path(comment.user) %>
     <% else %>
       <%= link_to_unless comment.site_url.blank?, comment.name, fix_url(comment.site_url), :rel => "nofollow" %>
     <% end %>

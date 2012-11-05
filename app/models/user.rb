@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :site_url, :email_on_reply
+  
+  # :token_authenticatable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
+   
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :site_url, :email_on_reply
+  
   before_create { generate_token(:token) }
   has_many :comments
   has_paper_trail

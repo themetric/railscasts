@@ -1,4 +1,5 @@
 Railscasts::Application.routes.draw do
+ 
   root :to => "episodes#index"
 
   match "auth/:provider/callback" => "users#create"
@@ -12,9 +13,14 @@ Railscasts::Application.routes.draw do
   match 'unsubscribe/:token' => 'users#unsubscribe', :as => "unsubscribe"
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
-  resources :users do
-    member { put :ban }
-  end
+  # Users
+  resource :users do 
+    # TODO put into a member block 
+    member { put :ban } 
+    match "profile/:id" => "users#show", :on => :member, :as => :profile       
+  end 
+  devise_for :users 
+  
   resources :comments
   resources :episodes
   resources :feedback_messages

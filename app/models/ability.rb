@@ -8,7 +8,7 @@ class Ability
     end
     can :access, :info
     can :create, :feedback_messages
-    can [:read, :create, :login, :unsubscribe], :users
+    can [:read, :create, :login, :sign_up, :unsubscribe], :users    
 
     if user
       can :logout, :users

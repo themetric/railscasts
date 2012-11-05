@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :load_current_user, :only => [:edit, :update]
   load_and_authorize_resource
 
-  def show
+  def profile
   end
 
   def create

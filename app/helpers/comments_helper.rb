@@ -1,6 +1,7 @@
 module CommentsHelper
   def format_comment(comment)
-    if comment.legacy?
+    #if comment.legacy?
+    if true 
       simple_format(keep_spaces_at_beginning(h(comment.content)))
     else
       CodeFormatter.new(comment.content).to_html.html_safe

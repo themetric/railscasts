@@ -18,6 +18,9 @@ gem "therubyracer"
 gem "execjs" 
 gem "omniauth-github" 
 gem "devise" 
+gem "paperclip" 
+gem "aws-sdk"
+gem "aws-s3", :require => "aws/s3"
 
 group :development, :test do
   gem "rspec-rails"

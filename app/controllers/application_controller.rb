@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
     current_user && current_user.id
   end
 
-  def current_user
-    @current_user ||= User.find_by_token(cookies[:token]) if cookies[:token]
-  end
-  helper_method :current_user
+  #def current_user
+  #  @current_user ||= User.find_by_token(cookies[:token]) if cookies[:token]
+  #end
+  #helper_method :current_user
 
   def redirect_to_target_or_default(default, *options)
     redirect_to(session[:return_to] || default, *options)

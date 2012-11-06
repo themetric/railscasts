@@ -4,6 +4,15 @@ class Episode < ActiveRecord::Base
   has_many :tags, :through => :taggings
 
   has_paper_trail
+  
+  has_attached_file :icon, 
+    :styles => { normal: "204x140", mini_thumb: "45x45"},
+    :url => ":id/:style_:basename.:extension",
+    :path => ":id/:style_:basename.:extension",
+    :storage => :s3,
+    :s3_credentials => { :access_key_id     => APP_CONFIG['s3_key'],
+                         :secret_access_key => APP_CONFIG['s3_secret'] },
+    :bucket => "marklinstop_dev_episode_icons"
 
   scope :published, lambda { where('published_at <= ?', Time.now.utc) }
   scope :unpublished, lambda { where('published_at > ?', Time.now.utc) }
@@ -14,6 +23,8 @@ class Episode < ActiveRecord::Base
   serialize :file_sizes
 
   before_create :set_permalink
+  
+  TYPES = ["Article", "Video", "Gallery"]
 
   # sometimes ThinkingSphinx isn't loaded for rake tasks
   if respond_to? :define_index
@@ -29,7 +40,7 @@ class Episode < ActiveRecord::Base
       has taggings.tag_id, :as => :tag_ids
     end
   end
-
+  
   def self.search_published(query, tag_id = nil)
     if APP_CONFIG['thinking_sphinx']
       with = tag_id ? {:tag_ids => tag_id.to_i} : {}
@@ -60,6 +71,23 @@ class Episode < ActiveRecord::Base
     APP_CONFIG['thinking_sphinx'] = false
     raise e
   end
+  
+  def type 
+    self.class::TYPES[self.type_id]
+  end 
+  
+  def link_text 
+    case self.type 
+    when "Video" 
+        "Watch Episode" 
+    when "Article" 
+        "Read Article" 
+    when "Gallery"
+        "View Gallery" 
+    else
+        "View Episode" 
+    end
+  end 
 
   def full_name
     "\##{position} #{name}"

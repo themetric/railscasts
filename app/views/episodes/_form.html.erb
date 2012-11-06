@@ -4,6 +4,10 @@
     <%= f.error_messages %>
     <%= field f, :position %>
     <%= field f, :name %>
+    <%= f.select :type_id, Episode::TYPES.each.with_index.collect {|i,ty| [i,ty]} %>
+    <br />
+    Icon
+    <%= f.file_field :icon %>
     <%= field f, :tag_names, :label => "Tags" %>
     <%= field f, :description, :type => :text_area, :rows => 6 %>
     <%= field f, :notes, :type => :text_area, :rows => 20, :cols => 80 %>

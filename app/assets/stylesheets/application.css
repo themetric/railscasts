@@ -181,7 +181,7 @@ label.check_box {
   background: -webkit-gradient(linear, left top, left bottom, from(#61B5D5), to(#267E9F));
   background: -moz-linear-gradient(top,  #61B5D5, #267E9F);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61B5D5', endColorstr='#267E9F');
-  border-bottom: solid 3px #DE9F00;
+  border-bottom: solid 5px #E98C08;
   margin-bottom: 15px;
 }
 
@@ -191,13 +191,20 @@ label.check_box {
 }
 
 #nav_bar .nav li {
-  padding-left: 25px;
-  font-size: 14px;
-  color: #000;
+  color: black;
+  display: block;
+  z-index: 100;
+  padding: 10px 8px 6px 8px;
+  margin-right: 8px; 
+  text-transform: uppercase;
+  border-left: 1px solid #267E9F;
+  border-top: 1px solid #267E9F;
+  border-right: 1px solid #267E9F;
+  background-color: #61B5D5;
 }
 
 #nav_bar .nav li a {
-  color: #FFF;
+  color: white; 
 }
 
 #main {

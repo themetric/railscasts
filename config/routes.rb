@@ -13,14 +13,11 @@ Railscasts::Application.routes.draw do
   match 'unsubscribe/:token' => 'users#unsubscribe', :as => "unsubscribe"
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
-  # Users
-  resource :users do 
-    # TODO put into a member block 
-    member { put :ban } 
-    match "profile/:id" => "users#show", :on => :member, :as => :profile       
-  end 
   devise_for :users 
-  
+  resources :users do 
+    put "ban" => "users#ban", :as => :ban        
+  end 
+    
   resources :comments
   resources :episodes
   resources :feedback_messages

@@ -1,5 +1,5 @@
 <div class="episode">
-  <div class="screenshot"><%= link_to image_tag("/assets/episodes/stills/#{episode.asset_name}.png", :size => "200x125", :alt => episode.name), episode %></div>
+  <div class="screenshot"><%= link_to image_tag(episode.icon.url(:normal), :size => "200x125", :alt => episode.name), episode %></div>
   <div class="main">
     <div class="info">
       <span class="number">Episode #<%= episode.position %></span> &ndash;
@@ -11,8 +11,12 @@
     <h2><%= link_to episode.name, episode %></h2>
     <div class="description"><%= episode.description %></div>
     <div class="watch">
-      <%= link_to "Read Episode", episode_path(episode, :autoplay => true), :class => "watch_button" %>
-      <span class="stats">(<%= pluralize (episode.seconds/60).round, "minute" %>, <%= link_to pluralize(episode.comments.size, "comment"), episode_path(episode, :view => "comments") %>)</span>
+      <%= link_to episode.link_text, episode_path(episode, :autoplay => true), :class => "watch_button" %>
+      <span class="stats">(
+        <% if episode.type == "Video" %>
+            <%= pluralize (episode.seconds/60).round, "minute" %>, 
+        <% end %>
+        <%= link_to pluralize(episode.comments.size, "comment"), episode_path(episode, :view => "comments") %> )</span>
     </div>
   </div>
   <div class="clear"></div>

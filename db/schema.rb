@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104230229) do
+ActiveRecord::Schema.define(:version => 20121106192754) do
 
   create_table "comments", :force => true do |t|
     t.integer  "episode_id"
@@ -41,12 +41,17 @@ ActiveRecord::Schema.define(:version => 20121104230229) do
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "position",       :default => 0
-    t.integer  "comments_count", :default => 0,     :null => false
+    t.integer  "position",          :default => 0
+    t.integer  "comments_count",    :default => 0,     :null => false
     t.integer  "seconds"
-    t.boolean  "asciicasts",     :default => false, :null => false
-    t.boolean  "legacy",         :default => false, :null => false
+    t.boolean  "asciicasts",        :default => false, :null => false
+    t.boolean  "legacy",            :default => false, :null => false
     t.text     "file_sizes"
+    t.integer  "type_id"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
   create_table "feedback_messages", :force => true do |t|

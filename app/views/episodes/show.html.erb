@@ -9,7 +9,7 @@
     </script>
   <% end %>
   <div class="info<%= " video_info" if params[:autoplay] %>">
-    <div class="screenshot"><%= link_to image_tag(@episode.icon.url(:normal), :size => "200x125", :alt => @episode.name), {:autoplay => true}, :class => "play_video" %></div>
+    <div class="screenshot"><%= image_tag(@episode.icon.url(:normal), :size => "200x125", :alt => @episode.name) %></div>
     <h1>
       <span class="position">#<%= @episode.position %></span>
       <%= @episode.name %>
@@ -17,7 +17,7 @@
     <div class="details">
       <%= @episode.published_at.strftime('%b %d, %Y') %> |
       <% if @episode.type == "Video" %>   
-        <%= pluralize (@episode.seconds/60).round, "minute"  %> |
+        <%= @episode.duration  %> |
       <% end %> 
       <%= raw @episode.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>
       <% unless @episode.published? %>
@@ -49,7 +49,7 @@
     <div class="clear"></div>    
   </div>
   <ul class="nav horizontal">
-    <li class="selected"><%= tab_link "Show Notes", :view => nil %></li>
+    <li class="selected"><%= tab_link @episode.tab_text, :view => nil %></li>
     <li><%= tab_link pluralize(@episode.comments_count, "Comment"), :view => "comments" %></li>
     <li><%= tab_link "Similar Episodes", :view => "similar" %></li>
     <%= content_tag :li, link_to("Next Episode >", @episode.next), :class => "next" if !@episode.last_published? && @episode.next %>

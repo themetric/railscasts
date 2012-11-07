@@ -83,7 +83,7 @@
               <td><%= episode.position %></td>
               <td><%= link_to episode.name, episode %></td>
               <td><%= link_to pluralize(episode.comments_count, "comment"), episode_path(episode, :view => "comments"), :class => "comment_count" %></td>
-              <td><%= pluralize (episode.seconds/60).round, "minute" %></td>
+              <td><%= episode.duration %></td>
               <td><%= episode.published_at.strftime('%b %d, %Y') %></td>
             </tr>
           <% end %>
@@ -92,7 +92,7 @@
         <div class="grid">
           <% for episode in @episodes %>
             <div class="episode">
-              <div class="screenshot"><%= link_to image_tag("/assets/episodes/stills/#{episode.asset_name}.png", :size => "200x125"), episode %></div>
+              <div class="screenshot"><%= link_to image_tag(episode.icon.url(:normal), :size => "200x125"), episode %></div>
               <div class="name">
                 #<%= episode.position %>
                 <%= link_to episode.name, episode %>

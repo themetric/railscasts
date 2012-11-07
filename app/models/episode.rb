@@ -76,6 +76,12 @@ class Episode < ActiveRecord::Base
     self.class::TYPES[self.type_id]
   end 
   
+  def duration
+    if self.type == "Video"
+        pluralize (@episode.seconds/60).round, "minute"
+    end 
+  end 
+  
   def link_text 
     case self.type 
     when "Video" 
@@ -86,6 +92,19 @@ class Episode < ActiveRecord::Base
         "View Gallery" 
     else
         "View Episode" 
+    end
+  end 
+  
+  def tab_text 
+    case self.type 
+    when "Video" 
+        "Show Notes" 
+    when "Article" 
+        "Article" 
+    when "Gallery"
+        "Gallery Photos" 
+    else
+        "Notes" 
     end
   end 
 

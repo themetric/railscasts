@@ -2,11 +2,13 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   
-  # TODO authorization blocks Devise sign in and sign up 
-  #enable_authorization do |exception|
-  #  logger.debug exception
-  #  redirect_to root_url, :alert => exception.message
-  #end
+  # skip authorization for all devise controllers
+  unless :devise_controller?  
+      enable_authorization do |exception|
+        logger.debug exception
+        redirect_to root_url, :alert => exception.message 
+      end
+  end 
 
   private
 

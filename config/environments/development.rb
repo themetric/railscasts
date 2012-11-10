@@ -1,5 +1,11 @@
 Railscasts::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  config.before_initialize do
+   # Load in through YAML for development env 
+   require 'yaml'
+   APP_CONFIG = YAML.load(File.read(Rails.root.join("config", "app_config.yml")))
+  end
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development

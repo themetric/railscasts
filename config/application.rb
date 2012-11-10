@@ -1,11 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'net/http'
-require 'yaml'
-
-# Use Heroku ENV variables in production and YAML config otherwise 
-APP_CONFIG = ENV
-
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems

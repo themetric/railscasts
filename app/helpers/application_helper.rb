@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def avatar_url(comment_or_user, size = 64)
-    default_url = "#{root_url}images/guest.png"
+    default_url = "guest.png"
     token = gravatar_token(comment_or_user)
     if token.present?
       "http://gravatar.com/avatar/#{gravatar_token(comment_or_user)}.png?s=#{size}&d=#{CGI.escape(default_url)}"

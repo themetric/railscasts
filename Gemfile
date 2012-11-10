@@ -22,11 +22,13 @@ gem "paperclip"
 gem "aws-sdk"
 gem "aws-s3", :require => "aws/s3"
 gem "acts_as_list"
-gem "heroku" 
+gem "thin"
+
 
 group :development, :test do
   gem "rspec-rails"
   gem "launchy"
+  gem "heroku" 
 end
 
 group :test do

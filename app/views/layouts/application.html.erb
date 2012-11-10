@@ -16,7 +16,7 @@
       <div class="logo"><%= link_to image_tag("marklinstop_logo.png", :size => "375x80", :alt => "MarklinStop.com"), root_path %></div>      
       <div class="account-nav">
       <% if user_signed_in? %>
-        <%= image_tag avatar_url(current_user), :id => "avatar" %> 
+        <%= link_to (image_tag avatar_url(current_user), :id => "avatar"), user_path(current_user) %> 
         <%= link_to current_user.display_name, user_path(current_user), :id => "username" %>
         <br />
         <%= link_to "log out", destroy_user_session_path, :method => :delete %>

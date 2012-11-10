@@ -39,7 +39,7 @@ $(function() {
     $("#episode .nav a.tab").click(function(e) {
       $("#episode .nav li a").removeClass("selected");
       $(this).addClass("selected");
-      $("#episode .nav_section").append('<div class="progress"><img src="/images/progress_large.gif" width="32" height="32" alt="" /></div>');
+      $("#episode .nav_section").append('<div class="progress"><img src="/assets/progress_large.gif" width="32" height="32" alt="" /></div>');
       $.getScript(this.href);
       if (history && history.replaceState) {
         history.replaceState(null, document.title, this.href);
@@ -50,6 +50,12 @@ $(function() {
     $(".markdown_link").live("click", function(e) {
       $(this).next(".markdown_examples").slideToggle();
     });
+    
+    $("#episode_type_id").live("click", function(e) {
+      alert('wow'); 
+    });
+    
+    $('a.gallery').colorbox();
 
     $(".clippy").live({
       'clippycopy': function(e, data) {

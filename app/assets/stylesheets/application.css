@@ -1,5 +1,6 @@
 /*
 *= require_self
+*= require colorbox
 *= require_tree .
 */
 
@@ -144,9 +145,22 @@ label.check_box {
 }
 
 #top .account-nav {
-  position:absolute; 
-  bottom: 80px; 
+  position:absolute;   
+  text-align: right; 
+  bottom: 70px; 
   right: 100px; 
+}
+
+#top .account-nav a#username {
+  float:right; 
+  font-size: 18px; 
+}
+
+#top .account-nav img#avatar {
+  float:right; 
+  width: 36px; 
+  height: 36px; 
+  margin-left: 8px; 
 }
 
 #top .subscribe {
@@ -756,6 +770,23 @@ input#search, input#comment_search {
   line-height: 22px; 
 }
 
+#episode .show_notes img.centered {  
+  margin: 0px auto;   
+}
+
+#episode .show_notes img.left {
+  position:relative; 
+  float:left; 
+  margin: 15px; 
+}
+
+#episode .show_notes img.right {
+  position:relative; 
+  float:right; 
+  margin: 15px; 
+}
+
+
 #episode .episode_actions {
   float: right;
 }
@@ -1123,4 +1154,25 @@ pre code {
 
 input#user_remember_me {
     float:left; 
+}
+
+/*** PHOTO GALLERY ***/
+
+.thumb {
+    display: block;    
+    padding: 8px;
+    background-color:white; 
+    line-height: 1;    
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+    border: solid 1px #CCC;
+}
+
+.thumb.thumb-list {
+  float:left; 
+  margin: 15px; 
 }

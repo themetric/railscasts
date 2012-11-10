@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106192754) do
+ActiveRecord::Schema.define(:version => 20121109034044) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.integer  "position"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "episode_id"

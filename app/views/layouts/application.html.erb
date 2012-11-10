@@ -13,31 +13,33 @@
   </head>
   <body>
     <div id="top">
-      <div class="logo"><%= link_to image_tag("railscasts_logo.png", :size => "375x80", :alt => "MarklinStop.com"), root_path %></div>      
+      <div class="logo"><%= link_to image_tag("marklinstop_logo.png", :size => "375x80", :alt => "MarklinStop.com"), root_path %></div>      
       <div class="account-nav">
       <% if user_signed_in? %>
-        <%= link_to current_user.name, user_path(current_user) %>
+        <%= image_tag avatar_url(current_user), :id => "avatar" %> 
+        <%= link_to current_user.name, user_path(current_user), :id => "username" %>
         <br />
         <%= link_to "log out", destroy_user_session_path, :method => :delete %>
+        
       <% else %>
         <%= link_to("login", new_user_session_path) %> / <%= link_to("sign up", new_user_registration_path) %>  
       <% end %>      
       </div>
-      <ul class="subscribe horizontal">
+      <ul class="subscribe horizontal">       
         <li>
-          <%= link_to image_tag("icons/itunes.png", :size => "34x34"), "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=218282043" %>
-          <span class="name">watch on iTunes</span>
+          <%= link_to image_tag("icons/mailchimp.png", :size => "34x34"), "http://eepurl.com/f0pUL" %>
+          <span class="name">join newsletter</span>
         </li>
         <li>
-          <%= link_to image_tag("icons/twitter.png", :size => "34x34"), "http://twitter.com/railscasts" %>
-          <span class="name">follow on Twitter</span>
+          <%= link_to image_tag("icons/googleplus.png", :size => "34x34"), "https://plus.google.com/u/0/115548175117290179248" %>
+          <span class="name">follow on Google+</span>
         </li>
         <li>
-          <%= link_to image_tag("icons/facebook.png", :size => "34x34"), "http://www.facebook.com/pages/railscasts/197415140659" %>
+          <%= link_to image_tag("icons/facebook.png", :size => "34x34"), "https://www.facebook.com/pages/MarklinStopcom/176446422398649" %>
           <span class="name">follow on Facebook</span>
         </li>
         <li>
-          <%= link_to image_tag("icons/rss.png", :size => "34x34"), "http://feeds.feedburner.com/railscasts" %>
+          <%= link_to image_tag("icons/rss.png", :size => "34x34"), "http://feeds.feedburner.com/MarklinStop" %>
           <span class="name">subscribe to RSS feed</span>
         </li>
       </ul>

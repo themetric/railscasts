@@ -1,6 +1,13 @@
 require "builder"
 
 module ApplicationHelper
+
+  def markdown(text)
+    markdown = Redcarpet::Markdown.new(HTMLCustomRenderer,
+        :autolink => true, :space_after_headers => true)
+    markdown.render(text).html_safe
+  end 
+
   def textilize(text)
     CodeFormatter.new(text).to_html.html_safe unless text.blank?
   end
@@ -56,5 +63,33 @@ module ApplicationHelper
     label_name = options.delete(:label)
     type = options.delete(:type) || :text_field
     content_tag(:div, (f.label(attribute, label_name) + f.send(type, attribute, options)), :class => "field")
+  end
+end
+
+# create a custom renderer
+class HTMLCustomRenderer < Redcarpet::Render::HTML
+  include Sprockets::Helpers::RailsHelper
+  include ActionView::Helpers
+  
+  def link(link, title, content)
+    if ["Episode", "episode"].include?(content)
+        begin
+        ep = Episode.find(link)
+        link_to("EP ##{ep.position} - #{ep.name}", "/episodes/#{ep.id}")         
+        rescue ActiveRecord::RecordNotFound
+            "EPISODE ##{link} NOT FOUND"    
+        end
+    else         
+        link_to(content, link, :title => title)
+    end     
+  end
+  
+  def image(link, title, alt_text)  
+    alt_text = "centered" if alt_text == "center"
+    if ["centered", "left", "right"].include?(alt_text)
+        image_tag(link, :title => title, :alt => alt_text, :class => "thumb #{alt_text}")
+    else 
+        image_tag(link, :title => title, :alt => alt_text)
+    end
   end
 end

@@ -3,12 +3,6 @@
 <% end %>
 
 <div class="extra_nav">
-  <% if @episode.asciicasts? %>
-    <span class="asciicasts">
-      <%= image_tag "icons/asciicasts.png", :size => "12x15", :class => "icon" %>
-      <%= link_to "Read on ASCIIcasts", "http://asciicasts.com/episodes/#{@episode.to_param}" %>
-    </span>
-  <% end %>
   <% if @episode.file_sizes && @episode.file_sizes["zip"] %>
     <span class="browse_code">
       <%= image_tag "icons/browse_code.png", :size => "22x21", :class => "icon" %>
@@ -18,5 +12,12 @@
 </div>
 
 <div class="show_notes">
-  <%= simple_format @episode.notes %>
+  <% if @episode.type == "Gallery" %> 
+    <% @episode.assets.each do |asset| %>
+        <%= link_to(image_tag(asset.attachment.url(:thumb), :class => 'thumb thumb-list'), asset.attachment.url(:normal), class: "gallery", rel: @episode.full_name.parameterize) %>
+    <% end %>
+    <div style="clear:both;"></div>
+  <% else %>
+    <%= markdown @episode.notes %>
+  <% end %>
 </div>

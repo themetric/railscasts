@@ -21,6 +21,7 @@ gem "devise"
 gem "paperclip" 
 gem "aws-sdk"
 gem "aws-s3", :require => "aws/s3"
+gem "acts_as_list"
 
 group :development, :test do
   gem "rspec-rails"

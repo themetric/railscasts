@@ -17,7 +17,7 @@
       <div class="account-nav">
       <% if user_signed_in? %>
         <%= image_tag avatar_url(current_user), :id => "avatar" %> 
-        <%= link_to current_user.name, user_path(current_user), :id => "username" %>
+        <%= link_to current_user.display_name, user_path(current_user), :id => "username" %>
         <br />
         <%= link_to "log out", destroy_user_session_path, :method => :delete %>
         

@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    name.present? ? name : github_username
+    name.present? ? name : email.split('@').first # Show name if present or show shortened email 
   end
 
   def banned?

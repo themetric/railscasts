@@ -1,5 +1,8 @@
-<p>Welcome <%= @resource.email %>!</p>
+<p>Hello <%= @resource.display_name %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Thanks for creating an account on MarklinStop.  You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+<p>Thanks!</p>
+<p><b>MarklinStop.com</b></p>

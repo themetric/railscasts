@@ -4,7 +4,7 @@ require 'net/http'
 require 'yaml'
 
 # Use Heroku ENV variables in production and YAML config otherwise 
-APP_CONFIG = Rails.env.production? ENV : YAML.load(File.read(File.expand_path('../app_config.yml', __FILE__)))
+APP_CONFIG = ENV
 
 require 'rails/all'
 

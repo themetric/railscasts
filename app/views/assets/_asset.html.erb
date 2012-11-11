@@ -1,4 +1,5 @@
 <div class="thumb thumb-list" id="thumb_<%= asset.id %>">
+    <div style="padding: 8px;">![center-500](photo-<%= asset.assetable_id %>-<%= asset.id %>)</div>
     <%= link_to(image_tag(asset.attachment.url(:thumb)), asset.attachment.url(:normal), class: "gallery", rel: "assets") %>    
   	<%= link_to image_tag('delete.png'), episode_asset_path(asset.assetable, asset), :method => :delete, :remote => true, :onclick => "$('#thumb_#{asset.id}').fadeOut('fast');", :id => "delete" %>
     <%= hidden_field_tag "asset_ids[]", asset.id, class: 'asset_id' %>  

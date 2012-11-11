@@ -13,7 +13,7 @@ class Asset < ActiveRecord::Base
     :storage => :s3,
     :s3_credentials => { :access_key_id     => APP_CONFIG['s3_key'],
                          :secret_access_key => APP_CONFIG['s3_secret'] },
-    :bucket => "marklinstop_dev_episode_icons" # TODO create new bucket 
+    :bucket => "ms_#{Rails.env}_assets" 
 
     validates_attachment_size :attachment, :less_than => 4.megabytes
     validates_attachment_content_type :attachment, :content_type => /image/   

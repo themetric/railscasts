@@ -771,7 +771,7 @@ input#search, input#comment_search {
   line-height: 22px; 
 }
 
-#episode .show_notes img.centered {  
+#episode .show_notes img.center {  
   margin: 0px auto;   
 }
 
@@ -786,7 +786,6 @@ input#search, input#comment_search {
   float:right; 
   margin: 15px; 
 }
-
 
 #episode .episode_actions {
   float: right;
@@ -1175,6 +1174,7 @@ input#user_remember_me {
 
 .thumb img {
     display:block; 
+    margin: 0px auto; 
 }
 
 .thumb a#delete {

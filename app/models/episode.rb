@@ -15,7 +15,7 @@ class Episode < ActiveRecord::Base
     :storage => :s3,
     :s3_credentials => { :access_key_id     => APP_CONFIG['s3_key'],
                          :secret_access_key => APP_CONFIG['s3_secret'] },
-    :bucket => "marklinstop_dev_episode_icons"
+    :bucket => "ms_#{Rails.env}_episode_icons"
 
   scope :published, lambda { where('published_at <= ?', Time.now.utc) }
   scope :unpublished, lambda { where('published_at > ?', Time.now.utc) }

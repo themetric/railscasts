@@ -2,17 +2,6 @@ require "builder"
 require 'open-uri'
 require 'net/http'
 
-def remote_file_exists?(url)
-url = URI.parse(url)
-
-Net::HTTP.start(url.host, url.port) do |http|
-
-return http.head(url.request_uri).code == "200"
-
-end
-
-end
-
 module ApplicationHelper
 
   def markdown(text)
@@ -113,10 +102,16 @@ class HTMLCustomRenderer < Redcarpet::Render::HTML
     end     
   end
   
-  def image(link, title, alt_text)  
-    alt_text = "centered" if alt_text == "center"
-    if ["centered", "left", "right"].include?(alt_text)
-        image_tag(link, :title => title, :alt => alt_text, :class => "thumb #{alt_text}")
+  def image(link, title, alt_text)      
+    if (position_match = alt_text.match(/(center|left|right)-(\d+)/))
+        if (match = link.match(/photo-(\d+)-(\d+)/))            
+            if asset = Asset.where(:assetable_id => match[1], :id => match[2]).first             
+                link = asset.attachment.url(:normal)               
+            else 
+                "<div class='thumb #{alt_text}'>{Photo Not Found!}</div>".html_safe
+            end
+        end 
+        link_to(image_tag(link, :class => "thumb #{position_match[1]}", :style => "max-width: #{position_match[2]}px"), link, :class => "gallery", :rel => "gallery photo")
     else 
         image_tag(link, :title => title, :alt => alt_text)
     end

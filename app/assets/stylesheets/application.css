@@ -978,7 +978,7 @@ pre code {
   margin-right: 300px;
 }
 
-#about .ryan {
+#about .small-about {
   float: right;
   padding: 7px;
   margin-left: 50px;
@@ -987,7 +987,7 @@ pre code {
   font-weight: bold;
 }
 
-#about .ryan img {
+#about .small-about img {
   display: block;
   padding-bottom: 5px;
 }
@@ -1188,3 +1188,40 @@ input#user_remember_me {
   float:left; 
   margin: 15px; 
 }
+
+/*** TIPS ***/
+
+.tip {
+    margin: 0 0 15px 0; 
+    padding: 10px; 
+    font-size: 12px; 
+    color: #333;   
+}
+
+.tip.tip-info p {
+       line-height: 18px; 
+       margin:0px; 
+       padding:0px; 
+}
+
+.tip-blue {
+    background: #9BD7FF; 
+    border: 1px solid #457886; 
+    border-right-color: #A2BCC2; 
+    border-bottom-color: #A2BCC2; 
+}
+
+.tip-info {
+    background: #FBFFCE; 
+    border: 1px solid #DEEA53; 
+    border-right-color: #EFF2C7; 
+    border-bottom-color: #EFF2C7; 
+}
+
+.tip-success {
+    background: #E9F4E4;
+    border: 1px solid #76CC5A; 
+    border-right-color: #C5E9BA; 
+    border-bottom-color: #C5E9BA; 
+}
+

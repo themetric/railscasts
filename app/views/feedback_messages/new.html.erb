@@ -1,14 +1,13 @@
-<% title "Feedback", false %>
+<% title "Contact & Inquiry", false %>
 
 <div class="content">
   <div id="feedback">
-    <h2 class="bar">Feedback</h2>
+    <h2 class="bar">I want to hear from you...</h2>
     <%= form_for @feedback_message do |f| %>
       <%= f.error_messages %>
       <div class="info">
-        <p>You can also contact <a href="http://twitter.com/railscasts">@railscasts</a> on Twitter, or send an email to <script type="text/javascript">document.write(
-      "<n uers=\"znvygb:srrqonpx\100envyfpnfgf\056pbz\">srrqonpx\100envyfpnfgf\056pbz<\057n>".replace(/[a-zA-Z]/g, function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
-      </script>.</p>
+        <h3>I offer FREE appraisals of any Marklin toy, train, or entire collection.  Please contact me!</h3>
+        <p>You can send me an email to <%= link_to "marklinstop@gmail.com", "mailto:marklinstop@gmail.com" %> or use the form below.</p>
       </div>
       <div class="special_email_field">
         <%= label_tag :email %>
@@ -31,17 +30,13 @@
     <% end %>
   </div>
   <div id="feedback_instructions">
-    <p><strong>Please send feedback about:</strong></p>
+    <p><strong>Please contact me about:</strong></p>
     <ul>
+      <li>A Marklin toy you want to know more about</li>
+      <li>Marklin toys you want to buy or sell</li>    
       <li>Problems with existing episodes</li>
       <li>Ideas for future episodes</li>
       <li>Anything about this site</li>
-    </ul>
-    <p>Unfortunately I am unable to answer all generic Marklin questions which are not specific to episodes here on Marklin Stop. For this I recommend asking on one of the following forums.</p>
-    <ul>
-      <li><a href="http://marklin-users.net">Marklin Users (English)</a></li>
-      <li><a href="http://stackoverflow.com/">Stack Overflow</a></li>
-      <li><a href="http://railsforum.com/">Rails Forum</a></li>
-    </ul>
+    </ul>    
   </div>
 </div>

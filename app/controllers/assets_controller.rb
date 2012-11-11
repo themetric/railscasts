@@ -10,7 +10,7 @@ class AssetsController < ApplicationController
     if @asset.save
       flash[:notice] = "Successfully created upload."
       respond_to do |format|
-        format.json {render :json => { :result => 'success', :id => @asset } }
+        format.json {render :json => { :result => 'success', :asset_id => @asset.id } }
       end
     else
       respond_to do |format|

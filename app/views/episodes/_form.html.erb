@@ -46,9 +46,9 @@
           script : '/episodes/<%= @episode.id %>/assets',
           onError: function(event,ID,fileObj,errorObj) {
           }, 
-          onComplete : function(event, queueID, fileObj, response, data) { 
-            var dat = eval('(' + response + ')');
-            $.getScript('/episodes/<%= @episode.id %>/assets/' + dat["id"]["id"]);},
+          onComplete : function(event, queueID, fileObj, response, data) {
+            var dat = eval('(' + response + ')');            
+            $.getScript('/episodes/<%= @episode.id %>/assets/' + dat["asset_id"]);},
           scriptData : {
                 '_http_accept': 'application/javascript',
                 'format' : 'json',

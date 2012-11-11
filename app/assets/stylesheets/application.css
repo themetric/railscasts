@@ -1204,6 +1204,11 @@ input#user_remember_me {
        padding:0px; 
 }
 
+.tip.tip-info h3 {
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
 .tip-blue {
     background: #9BD7FF; 
     border: 1px solid #457886; 

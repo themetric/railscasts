@@ -1,0 +1,7 @@
+$('#assets').append("<%= escape_javascript(render(:partial => "assets/asset", :locals => {:asset => @asset})) %>");
+
+if($('#assets .thumbnail:visible .featured').length == 1) {
+  $('#assets .thumbnail:visible .featured').first().fadeIn();
+}
+
+

@@ -1,6 +1,7 @@
 /*
 *= require_self
 *= require colorbox
+*= require uploadify
 *= require_tree .
 */
 
@@ -1170,6 +1171,17 @@ input#user_remember_me {
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.075);
     box-shadow: 0 1px 1px rgba(0,0,0,0.075);
     border: solid 1px #CCC;
+}
+
+.thumb img {
+    display:block; 
+}
+
+.thumb a#delete {
+    position: relative;
+    display: block;
+    float: right;
+    margin-top: 8px; 
 }
 
 .thumb.thumb-list {

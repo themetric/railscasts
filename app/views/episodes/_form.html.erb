@@ -15,10 +15,58 @@
     <%= field f, :tag_names, :label => "Tags" %>
     <%= field f, :description, :type => :text_area, :rows => 6 %>
     <%= field f, :notes, :type => :text_area, :rows => 20, :cols => 120 %>
+    <div id='assets'>
+        <%- @episode.assets.each do |asset| %>
+            <%= render 'assets/asset', :asset => asset %>
+        <% end %>
+    </div>
+    <div style="clear:both;"></div>    
+    <%= file_field_tag :asset_attachment %>
     <%= field f, :published_at, :type => :date_select, :label => "Publish Date" %>
     <div id="episode-duration" style="<%= "display:none;" unless action_name.eql?("edit") and @episode.type == "Video" %>">
         <%= field f, :duration %>  
     </div>      
     <div class="actions"><%= f.submit %></div>
+  <% end %>
+  <% content_for :javascript do %>
+    <%- session_key = APP_CONFIG['session_key'] -%> 
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() { 
+        
+        $('#asset_attachment').click(function(event){ 
+          event.preventDefault();
+        }); 
+        
+        $('#asset_attachment').uploadify({
+          uploader : '/uploadify/uploadify.swf',
+          cancelImg : '/uploadify/cancel.png',
+          multi : true,
+          queueSizeLimit: '20',
+          auto : true,
+          script : '/episodes/<%= @episode.id %>/assets',
+          onError: function(event,ID,fileObj,errorObj) {
+          }, 
+          onComplete : function(event, queueID, fileObj, response, data) { 
+            var dat = eval('(' + response + ')');
+            $.getScript('/episodes/<%= @episode.id %>/assets/' + dat["id"]["id"]);},
+          scriptData : {
+                '_http_accept': 'application/javascript',
+                'format' : 'json',
+                '_method': 'post',
+                '<%= session_key %>' : encodeURIComponent('<%= u cookies[session_key] %>'),
+                'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>'),
+                'assetable_id' : '<%= @episode.id %>',
+                'assetable_type' : '<%= @episode.class.to_s %>'
+              },
+
+        });
+        
+        $('#upload_submit').click(function(event){ 
+            event.preventDefault(); 
+            $('#asset_attachment').uploadifyUpload(); 
+          });
+          
+      }); 
+    </script>
   <% end %>
 </div>

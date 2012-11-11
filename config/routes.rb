@@ -19,8 +19,11 @@ Railscasts::Application.routes.draw do
   end 
     
   resources :comments
-  resources :episodes
   resources :feedback_messages
+  
+  resources :episodes do 
+    resources :assets     
+  end  
 
   match "tags/:id" => redirect("/?tag_id=%{id}")
 end

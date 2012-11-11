@@ -1,4 +1,17 @@
 require "builder"
+require 'open-uri'
+require 'net/http'
+
+def remote_file_exists?(url)
+url = URI.parse(url)
+
+Net::HTTP.start(url.host, url.port) do |http|
+
+return http.head(url.request_uri).code == "200"
+
+end
+
+end
 
 module ApplicationHelper
 
@@ -21,9 +34,25 @@ module ApplicationHelper
     default_url = "guest.png"
     token = gravatar_token(comment_or_user)
     if token.present?
-      "http://gravatar.com/avatar/#{gravatar_token(comment_or_user)}.png?s=#{size}&d=#{CGI.escape(default_url)}"
+      token = gravatar_token(comment_or_user)
+      "http://gravatar.com/avatar/#{token}.png?s=#{size}"
     else
-      default_url
+      token = gravatar_token(comment_or_user)
+      #&d=#{CGI.escape(default_url)}
+      url = URI.parse("http://gravatar.com/avatar/#{token}.png?s=#{size}")
+      return url 
+      
+      #Net::HTTP.start(url.host, url.port) do |http|
+      #  if http.head(url.request_uri).code == "200"
+      #      if comment_or_user.class == User
+      #          # The token is good and a gravatar was found, save the token for next time 
+      #          comment_or_user.update_attribute(:gravatar_token, token)
+      #      end            
+      #      return url
+      #  else 
+      #      return default_url 
+      #  end
+      #end
     end
   end
 
@@ -35,7 +64,7 @@ module ApplicationHelper
       if token.present?
         token
       elsif comment_or_user.email.present?
-        Digest::MD5.hexdigest(comment_or_user.email.downcase)
+        Digest::MD5.hexdigest(comment_or_user.email.downcase)        
       end
     when User
       if comment_or_user.gravatar_token.present?

@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag "application", "coderay" %>        
     <%= javascript_include_tag "http://cdn.sublimevideo.net/js/3s7oes9q.js", "application" %>
     <%= csrf_meta_tag %>
+    <%= yield(:javascript) %>
     <%= yield(:head) %>
   </head>
   <body>

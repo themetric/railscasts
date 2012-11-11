@@ -11,13 +11,13 @@
   <% end %>
 </div>
 
-<div class="show_notes">
+<div class="show_notes">  
+    <%= markdown @episode.notes %>
   <% if @episode.type == "Gallery" %> 
+    <% markdown @episode.notes %>
     <% @episode.assets.each do |asset| %>
         <%= link_to(image_tag(asset.attachment.url(:thumb), :class => 'thumb thumb-list'), asset.attachment.url(:normal), class: "gallery", rel: @episode.full_name.parameterize) %>
     <% end %>
     <div style="clear:both;"></div>
-  <% else %>
-    <%= markdown @episode.notes %>
   <% end %>
 </div>

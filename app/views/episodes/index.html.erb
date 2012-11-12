@@ -1,4 +1,4 @@
-<% title "Ruby on Rails Screencasts", false %>
+<% title "Marklin Episodes", false %>
 
 <div class="content">
   <div class="side">
@@ -30,23 +30,7 @@
     </div>
     <div class="banner">
       <a href="http://www.toymetric.com/"><img alt="ToyMetric.com" src="http://marklinstop.com/wp-content/uploads/2012/04/toy_metric_ad_SUPERB.jpg" /></a>
-    </div>
-    <div class="banner">
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="badge">
-        <div>
-        <input type="hidden" name="cmd" value="_xclick" />
-        <input type="hidden" name="business" value="ryan@railscasts.com" />
-        <input type="hidden" name="item_name" value="Railscasts Donation" />
-        <input type="hidden" name="no_shipping" value="1" />
-        <input type="hidden" name="cn" value="Comments or Suggestions" />
-        <input type="hidden" name="currency_code" value="USD" />
-        <input type="hidden" name="tax" value="0" />
-        <input type="hidden" name="lc" value="US" />
-        <input type="hidden" name="bn" value="PP-DonationsBF" />
-        <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" />
-        </div>
-      </form>
-    </div>
+    </div>    
   </div>
 
 
@@ -112,7 +96,7 @@
       <%= will_paginate :previous_label => h("< Previous Page"),  :next_label => h("Next Page >") %>
     <% end %>
   </div>
-  <% if can? :create, :episodes %>
+  <% if can? :create, Episode %>
     <div class="actions"><%= link_to "New Episode", new_episode_path %></div>
   <% end %>
 </div>

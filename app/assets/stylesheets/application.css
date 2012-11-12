@@ -280,6 +280,17 @@ label.check_box {
   font-weight: normal;
 }
 
+.episodes img#protected {
+  position:relative; 
+  float:left; 
+  padding: 7px 4px 7px 4px;
+}
+
+#episode img#protected {
+  padding: 1px; 
+  padding-right: 4px; 
+}
+
 .full .episode {
   padding-bottom: 18px;
   border-bottom: solid 1px #E5E5E5;
@@ -761,6 +772,10 @@ input#search, input#comment_search {
   vertical-align: bottom;
 }
 
+#episode .show_notes {
+  padding: 10px 0px 10px 0px;
+}
+
 #episode .show_notes ul {
   margin-top: -10px; /* quick hack to move resources list under headline */
   padding-top: 0;
@@ -1192,7 +1207,7 @@ input#user_remember_me {
 /*** TIPS ***/
 
 .tip {
-    margin: 0 0 15px 0; 
+    margin-bottom: 20px; 
     padding: 10px; 
     font-size: 12px; 
     color: #333;   

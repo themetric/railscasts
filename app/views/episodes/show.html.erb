@@ -12,7 +12,7 @@
     <div class="screenshot"><%= image_tag(@episode.icon.url(:normal), :size => "200x125", :alt => @episode.name) %></div>
     <h1>
       <span class="position">#<%= @episode.position %></span>
-      <%= @episode.name %>
+      <%= image_tag "protected.png", :id => "protected" if @episode.protected %><%= @episode.name %>
     </h1>
     <div class="details">
       <%= @episode.published_at.strftime('%b %d, %Y') %> |

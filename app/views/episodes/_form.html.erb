@@ -5,6 +5,10 @@
     <%= field f, :position %>
     <%= field f, :name %>
     <div class="field">
+        <label>Protected</label>
+        <%= check_box f, :protected, :id => "episode_protected", :name => "episode[protected]" %>    
+    </div>    
+    <div class="field">
         <label>Episode Type</label>
         <%= f.select :type_id, Episode::TYPES.each.with_index.collect {|i,ty| [i,ty]} %>
     </div>

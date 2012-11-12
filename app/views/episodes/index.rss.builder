@@ -1,5 +1,5 @@
-title = "RailsCasts"
-author = "Ryan Bates"
+title = "MarklinStop"
+author = "Paul Deardorff"
 description = "Every week you will be treated to a new RailsCasts episode featuring tips and tricks with Ruby on Rails, the popular web development framework. These screencasts are short and focus on one technique so you can quickly move on to applying it to your own project. The topics are geared toward the intermediate Rails developer, but beginners and experts will get something out of it as well."
 keywords = "rails, ruby on rails, screencasts, podcasts, tips, tricks, tutorials, training, programming, railscast"
 

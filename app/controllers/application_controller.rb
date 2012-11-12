@@ -3,11 +3,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   # skip authorization for all devise controllers
-  unless :devise_controller?  
-      enable_authorization do |exception|
-        logger.debug exception
-        redirect_to root_url, :alert => exception.message 
-      end
+  #unless :devise_controller?  
+  #    enable_authorization do |exception|        
+  #      redirect_to root_url, :alert => exception.message 
+  #    end
+  #end 
+  
+  # skip authorization for all devise controllers
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    alert = exception.message 
+    redirect_to root_url, :alert => alert
   end 
 
   private

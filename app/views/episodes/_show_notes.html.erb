@@ -12,6 +12,7 @@
 </div>
 
 <div class="show_notes">  
+ <% if can? :view_content, @episode %> 
     <%= markdown @episode.notes %>
   <% if @episode.type == "Gallery" %> 
     <% markdown @episode.notes %>
@@ -20,4 +21,9 @@
     <% end %>    
   <% end %>
   <div style="clear:both;"></div>
+ <% else %> 
+  <div class="tip tip-info">
+    You must be a registered member to read the content of this article. You can  <%= link_to "login", new_user_session_path %> or <%= link_to "create an account", new_user_registration_path %>. 
+  </div>
+ <% end %>
 </div>

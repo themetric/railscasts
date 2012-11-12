@@ -8,7 +8,7 @@
         <span class="unreleased">NOT YET RELEASED</span>
       <% end %>
     </div>
-    <h2><%= link_to episode.name, episode %></h2>
+    <%= image_tag "protected.png", :id => "protected" if episode.protected %><h2><%= link_to episode.name, episode %></h2>
     <div class="description"><%= episode.description %></div>
     <div class="watch">
       <% if episode.type == "Video" %>

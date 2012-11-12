@@ -7,6 +7,6 @@ class Mailer < ActionMailer::Base
   def comment_response(comment, user)
     @comment = comment
     @user = user
-    mail :to => @user.email, :from => "marklinstop@gmail.com", :subject => "Comment Response on RailsCasts"
+    mail :to => @user.email, :from => "marklinstop@gmail.com", :subject => "Comment Response on MarklinStop"
   end
 end

@@ -8,6 +8,8 @@ class Comment < ActiveRecord::Base
 
   has_paper_trail
   has_ancestry
+  
+  after_create :notify_other_commenters 
 
   def self.search(query)
     if query.blank?

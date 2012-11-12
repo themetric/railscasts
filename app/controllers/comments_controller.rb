@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
         if @comment.errors.present?
           render :new
         else
-          @comment.notify_other_commenters
+          #notify_other_commenters
+          # Done in Comment model 
           redirect_to(episode_path(@comment.episode, :view => "comments"))
         end
       end

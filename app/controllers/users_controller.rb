@@ -27,9 +27,16 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-    @user = User.find_by_unsubscribe_token!(params[:token])
-    @user.update_attributes!(:email_on_reply => false)
-    redirect_to root_url, :notice => "You have been unsubscribed from further email notifications."
+    begin 
+        @user = User.find_by_unsubscribe_token!(params[:token])
+        if @user.update_attribute(:email_on_reply, false)
+            redirect_to root_url, :notice => "You have been unsubscribed from further email notifications. You can manage email notification settings in your profile."
+        else 
+            redirect_to root_url, :alert => "There was a problem while updating your email notifications." 
+        end 
+    rescue ActiveRecord::RecordNotFound
+     redirect_to root_url, :alert => "The unsubscribe link you provided doesn't match our records.  Make sure it is the most current unsubscribe link." 
+    end
   end
 
   private

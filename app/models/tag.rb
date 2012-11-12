@@ -9,6 +9,6 @@ class Tag < ActiveRecord::Base
   end
 
   def display_name
-    name.titleize.gsub("E ", "e")
+    name.gsub("-", " ")
   end
 end

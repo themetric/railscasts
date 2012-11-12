@@ -280,15 +280,14 @@ label.check_box {
   font-weight: normal;
 }
 
-.episodes img#protected {
+.episodes img#protected, .episode img#protected {
   position:relative; 
   float:left; 
   padding: 7px 4px 7px 4px;
 }
 
-#episode img#protected {
-  padding: 1px; 
-  padding-right: 4px; 
+#episode h1 img#protected {
+  padding: 0px 5px 1px 0px; 
 }
 
 .full .episode {

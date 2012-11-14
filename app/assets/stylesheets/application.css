@@ -775,6 +775,12 @@ input#search, input#comment_search {
   padding: 10px 0px 10px 0px;
 }
 
+#episode .show_notes blockquote{
+  border-left: 10px solid #DDD; 
+  margin-left: 15px; 
+  padding-left: 30px; 
+}
+
 #episode .show_notes ul {
   margin-top: -10px; /* quick hack to move resources list under headline */
   padding-top: 0;

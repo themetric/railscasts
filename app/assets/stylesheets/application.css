@@ -1236,6 +1236,12 @@ input#user_remember_me {
     border-bottom-color: #A2BCC2; 
 }
 
+.tip-error {
+    color: #B94A48; 
+    background: #F2DEDE; 
+    border: 1px solid #457886; 
+}
+
 .tip-info {
     background: #FBFFCE; 
     border: 1px solid #DEEA53; 

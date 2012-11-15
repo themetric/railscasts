@@ -4,6 +4,13 @@ require 'net/http'
 
 module ApplicationHelper
 
+  def error_messages(object)     
+    html = '<div class="tip tip-error">' 
+    html += object.errors.full_messages.map { |msg| content_tag(:li, msg) }.join 
+    html += '</div>'
+    return html.html_safe if object.errors.any? 
+  end
+
   def markdown(text)
     markdown = Redcarpet::Markdown.new(HTMLCustomRenderer,
         :autolink => true, :space_after_headers => true)

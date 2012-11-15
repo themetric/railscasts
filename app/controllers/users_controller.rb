@@ -9,10 +9,12 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def update
-    @user.attributes = params[:user]
-    @user.save!
-    redirect_to @user, :notice => "Successfully updated profile."
+  def update    
+    if @user.update_attributes(params[:user]) 
+        redirect_to @user, :notice => "Successfully updated profile."
+    else 
+        render :edit 
+    end 
   end
 
   def ban

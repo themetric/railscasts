@@ -2,7 +2,7 @@
 
 <div class="content">
 <%= form_for @user do |f| %>
-  <%= f.error_messages %>
+  <%= error_messages(@user) %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>

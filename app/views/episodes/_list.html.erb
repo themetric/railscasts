@@ -1,0 +1,18 @@
+<table class="list">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Comments</th>
+            <th>Duration</th>
+            <th>Released</th>
+          </tr>
+          <% for episode in episodes %>
+            <tr>
+              <td><%= episode.position %></td>
+              <td><%= link_to episode.name, episode %></td>
+              <td><%= link_to pluralize(episode.comments_count, "comment"), episode_path(episode, :view => "comments"), :class => "comment_count" %></td>
+              <td><%= episode.duration %></td>
+              <td><%= episode.published_at.strftime('%b %d, %Y') %></td>
+            </tr>
+          <% end %>
+</table> 

@@ -12,19 +12,21 @@
     <div class="screenshot"><%= image_tag(@episode.icon.url(:normal), :size => "200x125", :alt => @episode.name) %></div>
     <h1>
       <span class="position">#<%= @episode.position %></span>
-      <%= image_tag "protected.png", :id => "protected" if @episode.protected %><%= @episode.name %>
-    </h1>
-    <div class="details">
-      <%= @episode.published_at.strftime('%b %d, %Y') %> |
+      <%= image_tag "protected.png", :id => "protected" if @episode.protected %><%= @episode.name %> 
+    </h1>    
+    <div class="details">      
+      <%= @episode.published_at.strftime('%b %d, %Y') %> by <%= display_link(@episode.author) %> |
       <% if @episode.type == "Video" %>   
         <%= @episode.duration  %> |
       <% end %> 
-      <%= raw @episode.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>
+      <%= raw @episode.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>       
       <% unless @episode.published? %>
         <span class="unreleased">NOT YET RELEASED</span>
       <% end %>
     </div>
-    <div class="description"><%= @episode.description %></div>
+    <div class="description">
+        <%= @episode.description %>        
+    </div>
     <% if @episode.type == "Video" %> 
         <div class="watch">
           <%= link_to({:autoplay => true}, {:class => "play_video watch_button"}) do %>

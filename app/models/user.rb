@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   before_create { generate_token(:token) }
   has_many :comments
+  has_many :episodes 
   has_paper_trail
 
   def self.create_from_omniauth(omniauth)

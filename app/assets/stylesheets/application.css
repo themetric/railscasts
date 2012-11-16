@@ -12,6 +12,10 @@ body {
   margin: 0;
 }
 
+hr#big {
+    margin: 30px 0px 30px 0px; 
+}
+
 a {
   color: #1B97F2;
   text-decoration: none;
@@ -1254,5 +1258,32 @@ input#user_remember_me {
     border: 1px solid #76CC5A; 
     border-right-color: #C5E9BA; 
     border-bottom-color: #C5E9BA; 
+}
+
+/*** USERS ***/
+
+.avatar {    
+
+}
+
+.avatar.micro {
+    max-height: 20px; 
+    line-height: 10px; 
+}
+
+#user-link {
+    color:#1B97F2; 
+}
+
+.icon-user.inline {    
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0px 1px 0px 0px;    
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("glyphicons-halflings.png");    
+    background-repeat: no-repeat;
+    background-position: -168px 0;
 }
 

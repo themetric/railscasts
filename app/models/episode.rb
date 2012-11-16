@@ -3,6 +3,7 @@ class Episode < ActiveRecord::Base
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   has_many :assets, :as => :assetable, :dependent => :destroy 
+  belongs_to :user 
   
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
@@ -43,6 +44,14 @@ class Episode < ActiveRecord::Base
       has taggings.tag_id, :as => :tag_ids
     end
   end
+  
+  def author   
+    if self.user.present? 
+        self.user         
+    else 
+       User.where(:admin => true).first  
+    end 
+  end 
   
   def self.search_published(query, tag_id = nil)
     if APP_CONFIG['thinking_sphinx']

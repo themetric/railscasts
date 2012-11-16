@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112010721) do
+ActiveRecord::Schema.define(:version => 20121115233034) do
 
   create_table "assets", :force => true do |t|
     t.integer  "assetable_id"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20121112010721) do
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
     t.boolean  "protected"
+    t.integer  "user_id"
   end
 
   create_table "feedback_messages", :force => true do |t|

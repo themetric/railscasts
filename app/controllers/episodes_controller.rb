@@ -40,7 +40,7 @@ class EpisodesController < ApplicationController
   end
 
   def update
-    @episode.load_file_sizes
+    #@episode.load_file_sizes
     if @episode.update_attributes(params[:episode])
       redirect_to @episode, :notice => "Successfully updated episode."
     else

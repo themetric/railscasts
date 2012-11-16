@@ -7,7 +7,11 @@
     <div class="field">
         <label>Protected</label>
         <%= f.check_box :protected %>    
-    </div>    
+    </div>   
+    <div class="field">
+        <label>Author</label>
+        <%= f.select :user_id, User.where(:moderator => true).order(:name).each.collect {|user| [user.display_name, user.id] } %>
+    </div> 
     <div class="field">
         <label>Episode Type</label>
         <%= f.select :type_id, Episode::TYPES.each.with_index.collect {|i,ty| [i,ty]} %>

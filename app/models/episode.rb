@@ -49,7 +49,7 @@ class Episode < ActiveRecord::Base
     if self.user.present? 
         self.user         
     else 
-       User.where(:admin => true).first  
+       User.find_by_admin(true)
     end 
   end 
   

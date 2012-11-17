@@ -4,6 +4,7 @@
 //= require_tree .
 
 $(function() {
+  
   if ($("#episode").length > 0) {
     sublimevideo.ready(function() {
       if ($("#episode video").length > 0) {
@@ -73,3 +74,9 @@ $(function() {
     });
   }
 });
+
+
+function showHelper(field_id) {
+    $('.tip.tip-info').fadeOut();
+    $(field_id + ' .tip.tip-info').fadeIn()
+}; 

@@ -3,22 +3,47 @@
 <div class="content">
 <%= form_for @user do |f| %>
   <%= error_messages(@user) %>
-  <p>
+  
+    <br/>
+   
     <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
+    <div class="field-helper" id="display_name">
+        <%= f.text_field :name, :onclick => "showHelper('#display_name');" %>    
+        <div class="tip tip-info">This is your display name, leave it blank and <b><%= @user.display_name %></b> will be used.</div>
+    </div>    
+    
+    <div style="clear:both;"></div>
+    <br/>
+    
     <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
+    <div class="field-helper" id="email">              
+        <%= f.text_field :email, :onclick => "showHelper('#email');" %>
+        <div class="tip tip-info">We will only send important alerts to your email and replies to your comments if you wish.</div>
+    </div>    
+    
+    <div style="clear:both;"></div>
+    <br/>
+    
     <%= f.label :site_url, "Site URL" %>
-    <%= f.text_field :site_url %>
-  </p>
-  <p>
+    <div class="field-helper" id="site_url">              
+        <%= f.text_field :site_url, :onclick => "showHelper('#site_url');" %>
+        <div class="tip tip-info">A link to your personal website, like marklinstop.com</div>
+    </div>    
+    
+    <div style="clear:both;"></div>
+    <br/>
+    
     <%= f.check_box :email_on_reply %>
     <%= f.label :email_on_reply, "Receive email when a user replies to your comment", :class => "check_box" %>
-  </p>
-  <p><%= f.submit "Update Profile" %></p>
+    
+    <br/>
+    
+  <%= f.submit "Update Profile" %>
 <% end %>
 </div>
+
+<% content_for :javascript do %>    
+    <script type="text/javascript" charset="utf-8">
+    
+    </script>
+<% end %>

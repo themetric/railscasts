@@ -2,15 +2,6 @@
   <div class="actions episode_actions"><%= link_to "Edit", edit_episode_path(@episode) %></div>
 <% end %>
 
-<div class="extra_nav">
-  <% if @episode.file_sizes && @episode.file_sizes["zip"] %>
-    <span class="browse_code">
-      <%= image_tag "icons/browse_code.png", :size => "22x21", :class => "icon" %>
-      <%= link_to "Browse Source Code", "http://github.com/railscasts/episode-#{@episode.position}" %>
-    </span>
-  <% end %>
-</div>
-
 <div class="show_notes">  
  <% if can? :view_content, @episode %> 
     <%= markdown @episode.notes %>

@@ -24,7 +24,7 @@ class Episode < ActiveRecord::Base
   scope :recent, order('position DESC')
 
   validates_presence_of :published_at, :name
-  serialize :file_sizes
+  #serialize :file_sizes
 
   before_create :set_permalink
   
@@ -197,7 +197,7 @@ class Episode < ActiveRecord::Base
     self.file_sizes = {}
     files.each do |file|
       ext = file[:url][/\w+$/]
-      self.file_sizes[ext] = fetch_file_size(file[:url])
+      #self.file_sizes[ext] = fetch_file_size(file[:url])
     end
   end
 

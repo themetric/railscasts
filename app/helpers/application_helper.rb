@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def markdown(text)
     markdown = Redcarpet::Markdown.new(HTMLCustomRenderer,
-        :autolink => true, :space_after_headers => true)
+        :autolink => true, :space_after_headers => true, :tables => true)
     markdown.render(text).html_safe
   end 
 

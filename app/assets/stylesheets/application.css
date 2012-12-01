@@ -273,6 +273,18 @@ label.check_box {
   margin-right: 200px;
 }
 
+.new {
+    background-image: url('/assets/new-icon.png');
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: -30px;
+    top: -20px;
+    display: block;
+    background-size: 60px;
+    background-repeat: no-repeat;
+}
+
 .unreleased {
   color: #D00;
   font-weight: bold;
@@ -298,6 +310,7 @@ label.check_box {
   padding-bottom: 18px;
   border-bottom: solid 1px #E5E5E5;
   margin-bottom: 20px;
+  position: relative; 
 }
 
 .full .screenshot {

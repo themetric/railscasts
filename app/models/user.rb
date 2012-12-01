@@ -10,6 +10,16 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :episodes 
   has_paper_trail
+  
+  after_save :update_name 
+  
+  def update_name 
+    if self.name.present? 
+        return 
+    else 
+        self.update_attribute(:name, self.email.split('@').first) 
+    end 
+  end 
 
   def self.create_from_omniauth(omniauth)
     User.new.tap do |user|
@@ -39,7 +49,7 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    name.present? ? name : email.split('@').first # Show name if present or show shortened email 
+    self.name
   end
 
   def banned?

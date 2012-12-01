@@ -45,6 +45,10 @@ class Episode < ActiveRecord::Base
     end
   end
   
+  def new? 
+    self.published_at >= 15.days.ago 
+  end
+  
   def author   
     if self.user.present? 
         self.user         

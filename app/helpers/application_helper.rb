@@ -97,16 +97,19 @@ class HTMLCustomRenderer < Redcarpet::Render::HTML
   include ActionView::Helpers
   
   def link(link, title, content)
-    if ["Episode", "episode"].include?(content)
-        begin
-        ep = Episode.find(link)
-        link_to("EP ##{ep.position} - #{ep.name}", "/episodes/#{ep.id}")         
-        rescue ActiveRecord::RecordNotFound
-            "EPISODE ##{link} NOT FOUND"    
-        end
-    else         
-        link_to(content, link, :title => title)
-    end     
+    begin            
+        if ["User", "user"].include?(content)
+            user = eval(content.capitalize).find_by_name(link)
+            link_to("#{user.display_name}", "/users/#{user.id}")         
+        elsif ["Episode", "episode"].include?(content)
+            ep = eval(content.capitalize).find(link) 
+            link_to("EP ##{ep.position} - #{ep.name}", "/episodes/#{ep.id}")
+        else 
+            link_to(content, link, :title => title)
+        end 
+    rescue 
+        "#{content} ##{link} NOT FOUND"    
+    end   
   end
   
   def image(link, title, alt_text)      

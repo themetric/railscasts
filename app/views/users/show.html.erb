@@ -8,6 +8,9 @@
   <% if @user.moderator? %>
     <p><strong>This user is a moderator.</strong></p>
   <% end %>
+  <% if @user.admin? %>
+    <p><strong>This user is a site admin. If you would like to contact me, <%= link_to "send me a message.", feedback_path %></strong></p>
+  <% end %>
   <% if @user.banned? %>
     <p><strong>This user is banned from comments.</strong></p>
   <% end %>  

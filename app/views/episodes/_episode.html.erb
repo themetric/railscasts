@@ -1,5 +1,8 @@
 <div class="episode">
   <div class="screenshot"><%= link_to image_tag(episode.icon.url(:normal), :size => "200x125", :alt => episode.name), episode %></div>
+  <% if episode.new? %>
+    <div class="new"></div>
+  <% end %>
   <div class="main">
     <div class="info">
       <span class="number">Episode #<%= episode.position %></span> &ndash;

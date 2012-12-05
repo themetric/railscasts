@@ -14,7 +14,7 @@
   <div style="clear:both;"></div>
  <% else %> 
   <div class="tip tip-info">
-    You must be a registered member to read the content of this article. You can  <%= link_to "login", new_user_session_path %> or <%= link_to "create an account", new_user_registration_path %>. 
+    <%= link_to "Create free account", new_user_registration_path %> or <%= link_to "login", new_user_session_path %> to read and view the content of this article. Registration is fast and free.  
   </div>
  <% end %>
 </div>

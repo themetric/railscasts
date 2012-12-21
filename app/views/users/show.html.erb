@@ -20,7 +20,7 @@
   <div class="actions">
     <p><%= link_to "Ban this User", user_ban_path(@user), :confirm => "Are you certain you want to ban this user? It will delete all of his comments and not allow him to comment again.", :remote => true, :method => :put if can?(:ban, @user) && !@user.banned? %></p>
   </div> 
-  <% if @user.moderator? %>
+  <% if @user.episodes.any? %>
   <hr id="big">
   <h3>Episodes by <%= @user.display_name %></h3>    
     <%= render :partial => "episodes/list", :locals => {:episodes => @user.episodes} %>

@@ -10,7 +10,7 @@
     </div>   
     <div class="field">
         <label>Author</label>
-        <%= f.select :user_id, User.where(:moderator => true).order(:name).each.collect {|user| [user.display_name, user.id] } %>
+        <%= f.select :user_id, User.order(:name).each.collect {|user| [user.display_name, user.id] } %>
     </div> 
     <div class="field">
         <label>Episode Type</label>

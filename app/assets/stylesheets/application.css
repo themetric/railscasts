@@ -806,6 +806,20 @@ input#search, input#comment_search {
   padding: 10px 0px 10px 0px;
 }
 
+#episode .show_notes table{
+  margin: 0px auto; 
+  border: solid 1px #CCC;
+}
+
+#episode .show_notes table tr th {
+  background-color:white; 
+}
+
+#episode .show_notes table tr td, #episode .show_notes table tr th{
+  padding: 5px; 
+  text-align:left; 
+}
+
 #episode .show_notes blockquote{
   border-left: 10px solid #DDD; 
   margin-left: 15px; 

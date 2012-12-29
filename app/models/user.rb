@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end 
   
   def to_param
-    self.name 
+    self.name.downcase.gsub(/[^0-9a-z]+/, ' ').strip.gsub(' ', '-')
   end 
 
   def self.create_from_omniauth(omniauth)

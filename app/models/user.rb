@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     if self.name.present? 
         return 
     else 
+        # This is very problematic!  
         self.update_attribute(:name, self.email.split('@').first) 
     end 
   end 

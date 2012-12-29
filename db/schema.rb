@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115233034) do
+ActiveRecord::Schema.define(:version => 20121229192003) do
 
   create_table "assets", :force => true do |t|
     t.integer  "assetable_id"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20121115233034) do
     t.integer  "failed_attempts",        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "slug"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

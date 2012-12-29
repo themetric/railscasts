@@ -1,3 +1,5 @@
+include ActionView::Helpers
+
 class User < ActiveRecord::Base
   
   # :token_authenticatable, :timeoutable and :omniauthable
@@ -11,19 +13,18 @@ class User < ActiveRecord::Base
   has_many :episodes 
   has_paper_trail
   
-  after_save :update_name 
+  before_save :set_name_and_slug  
   
-  def update_name 
-    if self.name.present? 
-        return 
-    else 
-        self.update_attribute(:name, self.email.split('@').first) 
+  def set_name_and_slug
+    if self.name.blank? 
+        self.name = self.email.split('@').first        
     end 
+    self.slug = sanitize(self.name)     
   end 
   
   def to_param
-    self.name.downcase.gsub(/[^0-9a-z]+/, ' ').strip.gsub(' ', '-')
-  end 
+    self.slug 
+  end  
 
   def self.create_from_omniauth(omniauth)
     User.new.tap do |user|

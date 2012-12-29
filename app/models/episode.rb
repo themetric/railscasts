@@ -1,3 +1,5 @@
+include ActionView::Helpers
+
 class Episode < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :taggings, :dependent => :destroy
@@ -232,6 +234,6 @@ class Episode < ActiveRecord::Base
   end
 
   def set_permalink
-    self.permalink = name.downcase.gsub(/[^0-9a-z]+/, ' ').strip.gsub(' ', '-') if name
+    self.permalink = sanitize(name) if name
   end
 end

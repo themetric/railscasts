@@ -10,6 +10,10 @@ module ApplicationHelper
     html += '</div>'
     return html.html_safe if object.errors.any? 
   end
+  
+  def sanitize(string)
+    return string.downcase.gsub(/[^0-9a-z]+/, ' ').strip.gsub(' ', '-')
+  end 
 
   def markdown(text)
     markdown = Redcarpet::Markdown.new(HTMLCustomRenderer,

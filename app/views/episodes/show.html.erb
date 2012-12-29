@@ -33,29 +33,12 @@
             Click to Play Video &#9654;
           <% end %>
         </div>
-    <% end %>
-    <!--
-    <div class="social">
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= episode_url(@episode) %>" data-text="Watching <%= @episode.name %> on RailsCasts" data-count="horizontal" data-via="railscasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    </div>    
-    <ul class="downloads horizontal">
-      <li>Download:</li>
-      <% for file in @episode.available_files %>
-        <li>
-          <%= link_to file[:name], file[:url] %>
-          <span class="overlay"><%= file[:info] %> (<%= number_to_human_size(file[:size]) %>)</span>
-        </li>
-      <% end %>
-    </ul>
-    --!>
+    <% end %>    
     <div class="clear"></div>    
   </div>
   <ul class="nav horizontal">
     <li class="selected"><%= tab_link @episode.tab_text, :view => nil %></li>
-    <li><%= tab_link pluralize(@episode.comments_count, "Comment"), :view => "comments" %></li>
-    <!--Remove similar episodes for the moment
-    <li><%= tab_link "Similar Episodes", :view => "similar" %></li>
-    --!>
+    <li><%= tab_link pluralize(@episode.comments_count, "Comment"), :view => "comments" %></li>   
     <%= content_tag :li, link_to("Next Episode >", @episode.next), :class => "next" if !@episode.last_published? && @episode.next %>
     <%= content_tag :li, link_to("< Previous Episode", @episode.previous), :class => "previous" if @episode.previous %>
   </ul>

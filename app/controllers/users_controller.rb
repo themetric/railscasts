@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_filter :load_current_user, :only => [:edit, :update]
-  load_and_authorize_resource
+  load_and_authorize_resource :find_by => :name
 
   def show
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    # User loaded above with find_by
   end
 
   def edit

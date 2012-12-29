@@ -1312,7 +1312,7 @@ input#user_remember_me {
     line-height: 10px; 
 }
 
-#user-link {
+#user-link, .user-link {
     color:#1B97F2; 
 }
 

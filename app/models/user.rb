@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
         self.update_attribute(:name, self.email.split('@').first) 
     end 
   end 
+  
+  def to_param
+    self.name 
+  end 
 
   def self.create_from_omniauth(omniauth)
     User.new.tap do |user|

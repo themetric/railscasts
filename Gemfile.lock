@@ -183,6 +183,9 @@ GEM
       cocaine (~> 0.4.0)
       mime-types
     pg (0.14.1)
+    pg_search (0.5.7)
+      activerecord (>= 3)
+      activesupport (>= 3)
     polyglot (0.3.3)
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -314,6 +317,7 @@ DEPENDENCIES
   paper_trail
   paperclip
   pg
+  pg_search
   rails (= 3.1.0)
   redcarpet
   rspec-rails

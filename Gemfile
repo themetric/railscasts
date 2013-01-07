@@ -23,6 +23,7 @@ gem "aws-sdk"
 gem "aws-s3", :require => "aws/s3"
 gem "acts_as_list"
 gem "thin"
+gem "pg_search"
 
 
 group :development, :test do

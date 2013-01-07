@@ -35,7 +35,7 @@ module ApplicationHelper
     else
       token = gravatar_token(comment_or_user)
       #&d=#{CGI.escape(default_url)}
-      url = URI.parse("http://gravatar.com/avatar/#{token}.png?s=#{size}")
+      url = URI.parse("http://gravatar.com/avatar/#{token}.png?s=#{size}&d=http://toymetric.com/assets/head_watermark.png")
       return url 
       
       #Net::HTTP.start(url.host, url.port) do |http|

@@ -11,14 +11,14 @@ class User < ActiveRecord::Base
   has_many :episodes 
   has_paper_trail
   
-  after_save :update_name 
+  # Do it before the save to stop sending multiple confirmation instructions 
+  before_save :set_name 
   
-  def update_name 
+  def set_name 
     if self.name.present? 
         return 
-    else 
-        # This is very problematic!  
-        self.update_attribute(:name, self.email.split('@').first) 
+    else         
+        self.name = self.email.split('@').first
     end 
   end 
 

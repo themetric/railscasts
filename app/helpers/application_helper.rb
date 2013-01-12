@@ -4,6 +4,10 @@ require 'net/http'
 
 module ApplicationHelper
 
+  def active?(url)
+	current_page?(url) ? 'class=active' : ''
+  end
+
   def error_messages(object)     
     html = '<div class="tip tip-error">' 
     html += object.errors.full_messages.map { |msg| content_tag(:li, msg) }.join 

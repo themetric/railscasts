@@ -205,25 +205,36 @@ label.check_box {
 }
 
 #nav_bar .nav {
-  float: right;
-  padding-top: 2px;
+  position:absolute; 
+  right: 92px; 
+  bottom: -5px; 
 }
 
 #nav_bar .nav li {
   color: black;
   display: block;
   z-index: 100;
-  padding: 10px 8px 6px 8px;
+  padding: 10px 8px 8px 8px;
   margin-right: 8px; 
   text-transform: uppercase;
-  border-left: 1px solid #267E9F;
-  border-top: 1px solid #267E9F;
-  border-right: 1px solid #267E9F;
-  background-color: #61B5D5;
+}
+
+#nav_bar .nav li.active {      
+  border-bottom: 5px solid #000;  
 }
 
 #nav_bar .nav li a {
+  padding: 4px; 
   color: white; 
+}
+
+#nav_bar .nav a:hover {
+  color: #EEE; 
+  text-decoration:none; 
+}
+
+#nav_bar .nav li:hover {  
+  border-bottom: 5px solid #000; 
 }
 
 #main {

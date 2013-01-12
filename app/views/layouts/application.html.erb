@@ -59,11 +59,11 @@
 
     <div id="nav_bar">
       <ul class="nav horizontal">
-        <li><%= link_to_unless_current "Browse Episodes", root_url %></li>
-        <li><%= link_to_unless_current "About MarklinStop", about_path %></li>
-        <li><%= link_to_unless_current "Contact", feedback_path %></li>
+        <li <%= active?(root_url) %>><%= link_to_unless_current "Browse Episodes", root_url %></li>
+        <li <%= active?(about_path) %>><%= link_to_unless_current "About MarklinStop", about_path %></li>
+        <li <%= active?(feedback_path) %>><%= link_to_unless_current "Contact", feedback_path %></li>
         <% if can? :index, :comments %>
-          <li><%= link_to_unless_current "Recent Comments", comments_path %></li>
+          <li <%= active?(comments_path) %>><%= link_to_unless_current "Recent Comments", comments_path %></li>
         <% end %>
       </ul>
       <%= form_tag episodes_path, :method => "get" do %>

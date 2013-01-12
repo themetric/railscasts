@@ -15,13 +15,13 @@
       <%= image_tag "protected.png", :id => "protected" if @episode.protected %><%= @episode.name %> 
     </h1>    
     <div class="details">      
-      <%= @episode.published_at.strftime('%b %d, %Y') %> by <%= display_link(@episode.author) %> |
+      <%= @episode.published_at.strftime('%b %d, %Y') %> // <%= display_link(@episode.author) %> //
       <% if @episode.type == "Video" %>   
-        <%= @episode.duration  %> |
+        <%= @episode.duration  %> //
       <% end %> 
       <%= raw @episode.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>       
       <% unless @episode.published? %>
-        <span class="unreleased">NOT YET RELEASED</span>
+        // <span class="unreleased">NOT YET RELEASED</span>
       <% end %>
     </div>
     <div class="description">

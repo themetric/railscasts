@@ -216,10 +216,12 @@ label.check_box {
   z-index: 100;
   padding: 10px 8px 8px 8px;
   margin-right: 8px; 
+  margin-bottom: 5px; 
   text-transform: uppercase;
 }
 
-#nav_bar .nav li.active {      
+#nav_bar .nav li.active {  
+  margin-bottom: 0px;     
   border-bottom: 5px solid #000;  
 }
 
@@ -234,6 +236,7 @@ label.check_box {
 }
 
 #nav_bar .nav li:hover {  
+  margin-bottom: 0px; 
   border-bottom: 5px solid #000; 
 }
 
@@ -460,17 +463,20 @@ label.check_box {
 }
 
 .episodes .filter {
-  border: solid 1px #999;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  background-color: #DDD;
   padding: 2px 8px;
   margin-bottom: 10px;
   font-size: 12px;
+  width: 40px;
+  color: white;
+  box-shadow: 0px 0px 1px 1px #9a9a9a;
+  background-color: #E98C08;
 }
 
 .episodes .filter a {
+  color: white; 
   padding-left: 5px;
 }
 

@@ -1,4 +1,5 @@
 <% title @episode.full_name, false %>
+<% content_for :description, @episode.description %>
 
 <div id="episode" class="<%= "legacy" if @episode.legacy? %>">
   <% if params[:autoplay] %>

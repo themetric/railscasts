@@ -14,6 +14,15 @@ module ApplicationHelper
     html += '</div>'
     return html.html_safe if object.errors.any? 
   end
+  
+  def description_meta_tag    
+    if content_for?(:description) 
+        content = content_for(:description) 
+    else 
+        content = "Collecting community and blog for Marklin trains: informational articles and the history behind toys and trains produced by the Marklin factory from 1859 - Present."
+    end 
+    return "<meta name=\"description\" content=\"#{content}\"/>".html_safe 
+  end 
 
   def markdown(text)
     markdown = Redcarpet::Markdown.new(HTMLCustomRenderer,

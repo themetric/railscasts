@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><%= content_for?(:title) ? yield(:title) : "Marklin Articles and Episodes for Collectors and Enthusiasts" %> - MarklinStop</title>
-    <meta name="description" content="Collecting community and blog for Märklin trains: informational articles and the history behind toys and trains produced by the Märklin factory from 1859 - Present." />
+    <%= description_meta_tag %>    
     <meta name="keywords" content="marklin, collector, trains, vintage, vintage marklin, vintage marklin trains, antique marklin, antique marklin trains, 800, 700, 1930s trains, 1940s trains, 1950s trains, SLR 700, ST 800, R 700 A, SK 800, RS 800, CCS 66 12921, lms, lner, lne, sell marklin, buy marklin, marklin collection, how to sell marklin, how to sell, how to buy marklin, sell trains, buy trains," />
     <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/marklinstop" />
     <%= stylesheet_link_tag "application", "coderay" %>        

@@ -156,7 +156,7 @@ label.check_box {
 #top .account-nav {
   position:absolute;   
   text-align: right; 
-  bottom: 70px; 
+  bottom: 35px; 
   right: 100px; 
 }
 
@@ -174,7 +174,7 @@ label.check_box {
 
 #top .subscribe {
   position: absolute;
-  bottom: 10px;
+  bottom: -20px;
   right: 100px;
 }
 

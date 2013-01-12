@@ -80,17 +80,18 @@ class Episode < ActiveRecord::Base
   end
 
   def similar_episodes
-    if APP_CONFIG['thinking_sphinx']
-      self.class.search("#{name} #{tag_names}", :without_ids => [id],
-            :conditions => { :published_at => 0..Time.now.utc.to_i },
-            :match_mode => :any, :page => 1, :per_page => 5,
-            :field_weights => { :name => 20, :description => 15, :notes => 5, :tag_names => 10 })
-    else
-      self.class.published.where("id != ?", self.id).limit(5).primitive_search(name, "OR")
-    end
-  rescue ThinkingSphinx::ConnectionError => e
-    APP_CONFIG['thinking_sphinx'] = false
-    raise e
+    #if APP_CONFIG['thinking_sphinx']
+    #  self.class.search("#{name} #{tag_names}", :without_ids => [id],
+    #        :conditions => { :published_at => 0..Time.now.utc.to_i },
+    #        :match_mode => :any, :page => 1, :per_page => 5,
+    #        :field_weights => { :name => 20, :description => 15, :notes => 5, :tag_names => 10 })
+    #else
+      # Search by the first tag name wow this is terrible 
+      self.class.published.where("id != ?", self.id).search_by_content(self.tags.first.name).limit(5)
+    #end
+  #rescue ThinkingSphinx::ConnectionError => e
+   # APP_CONFIG['thinking_sphinx'] = false
+   # raise e
   end
   
   def type 

@@ -197,9 +197,9 @@ label.check_box {
   padding: 8px 100px;
   background-color: #333;
   border-top: solid 1px #FFF;
-  background: -webkit-gradient(linear, left top, left bottom, from(#61B5D5), to(#267E9F));
-  background: -moz-linear-gradient(top,  #61B5D5, #267E9F);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61B5D5', endColorstr='#267E9F');
+  background: -webkit-gradient(linear, left top, left bottom, from(#61B5D5), to(#1B97F2));
+  background: -moz-linear-gradient(top,  #61B5D5, #1B97F2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61B5D5', endColorstr='#1B97F2');
   border-bottom: solid 5px #E98C08;
   margin-bottom: 15px;
 }

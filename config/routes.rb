@@ -4,7 +4,7 @@ Railscasts::Application.routes.draw do
 
   match "auth/:provider/callback" => "users#create"
   match "about" => "info#about", :as => "about"
-  match "give_back" => "info#give_back", :as => "give_back"
+  match "we-buy" => "info#we_buy", :as => "we_buy"
   match "moderators" => "info#moderators", :as => "moderators"
   match "login" => "users#login", :as => "login"
   match "logout" => "users#logout", :as => "logout"

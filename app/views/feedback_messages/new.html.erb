@@ -2,12 +2,11 @@
 
 <div class="content">
   <div id="feedback">
-    <h2 class="bar">I want to hear from you...</h2>
+    <h2 class="bar">Message Form</h2>
     <%= form_for @feedback_message do |f| %>
       <%= f.error_messages %>
-      <div class="info">
-        <h3>I offer FREE appraisals of any Marklin toy, train, or entire collection.  Please contact me!</h3>
-        <p>You can send me an email to <%= link_to "marklinstop@gmail.com", "mailto:marklinstop@gmail.com" %> or use the form below.</p>
+      <div class="info">        
+        <p>You can send me an email to <%= link_to "marklinstop@gmail.com", "mailto:marklinstop@gmail.com" %> or use the form below.  I will try to respond to your inquiry within 24 hours.</p>
       </div>
       <div class="special_email_field">
         <%= label_tag :email %>
@@ -26,7 +25,7 @@
         <%= f.label :content, "Message" %>
         <%= f.text_area :content, :rows => 14, :cols => 50 %>
       </div>
-      <div class="actions"><%= f.submit "Send Feedback" %></div>
+      <div class="actions"><%= f.submit "Send Message" %></div>
     <% end %>
   </div>
   <div id="feedback_instructions">

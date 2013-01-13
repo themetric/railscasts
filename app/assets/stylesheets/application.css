@@ -33,6 +33,12 @@ h1 {
   font-size: 24px;
 }
 
+h1.fancy {
+  color: #E98C08;
+  border-bottom: 1px solid #EEE;
+  padding-bottom: 10px;
+}
+
 h2 {
   font-size: 18px;
 }
@@ -1103,6 +1109,64 @@ pre code {
 
 #about p {
   margin: 8px 0;
+}
+
+
+/*** WE BUY ***/
+
+h1.fancy span#subtle {
+  font-size: 16px; 
+  color: #777; 
+}
+
+.learn-about-box {
+  position: relative; 
+  float: right; 
+  border-radius: 5px; 
+  background-color: #EEE; 
+  padding: 20px; 
+  width: 230px; 
+  margin-left: 20px; 
+}
+
+.content#we_buy p {
+  line-height: 18px; 
+}
+
+.learn-about-box h2 {
+  color: #777; 
+  text-transform: uppercase; 
+  text-align: center; 
+}
+
+.learn-about-box li {
+  margin-top: 5px; 
+  list-style: none; 
+}
+
+.learn-about-box li:before {
+  content:'\2022';
+  display: block;
+  position: relative;
+  max-width: 0px;
+  max-height: 0px;
+  left: -15px;
+  top: -0px;
+  color: #1B97F2;
+  font-size: 30px;
+  line-height: 18px;
+}
+
+.learn-about-box .contact-me-link a {
+  color: white; 
+  font-weight: bold; 
+  padding: 10px; 
+  background-color: #F98C08; 
+}
+
+.learn-about-box .contact-me-link {
+  margin: 30px 0px 10px 0px; 
+  text-align:center; 
 }
 
 

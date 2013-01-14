@@ -65,7 +65,7 @@
     <div id="nav_bar">
       <ul class="nav horizontal">
         <li <%= active?(root_url) %>><%= link_to_unless_current "Browse Episodes", root_url %></li>
-        <li <%= active?(we_buy_path) %>><%= link_to_unless_current "We Buy", we_buy_path %></li>
+        <li <%= active?(we_buy_path) %> id="we_buy"><div id="we_buy">$</div><%= link_to_unless_current "We Buy", we_buy_path %></li>
         <li <%= active?(about_path) %>><%= link_to_unless_current "About", about_path %></li>
         <li <%= active?(feedback_path) %>><%= link_to_unless_current "Contact", feedback_path %></li>
         <% if can? :index, :comments %>

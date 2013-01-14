@@ -221,6 +221,7 @@ label.check_box {
 }
 
 #nav_bar .nav li {
+  position:relative; 
   color: black;
   display: block;
   z-index: 100;
@@ -233,6 +234,25 @@ label.check_box {
 #nav_bar .nav li.active {  
   margin-bottom: 0px;     
   border-bottom: 5px solid #000;  
+}
+
+#nav_bar .nav li#we_buy {
+  padding-left: 50px; 
+}
+
+#nav_bar .nav li #we_buy {    
+  position: absolute; 
+  height: 20px;
+  width: 20px;
+  top: 8px;
+  left: 25px;
+  line-height: 20px;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 0px 1px 1px #9a9a9a;
+  background-color: green;
+  border-radius: 10px;
 }
 
 #nav_bar .nav li a {

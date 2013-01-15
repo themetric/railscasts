@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  protect_from_forgery
+  protect_from_forgery  
   
   # skip authorization for all devise controllers
   #unless :devise_controller?  
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   #    end
   #end 
   
-  # skip authorization for all devise controllers
+  # skip authorization for all devise controllers   
   
   rescue_from CanCan::AccessDenied do |exception|
     alert = exception.message 

@@ -26,4 +26,6 @@ Railscasts::Application.routes.draw do
   end  
 
   match "tags/:id" => redirect("/?tag_id=%{id}")
+  
+  match '*a' => 'errors#routing'
 end

@@ -12,6 +12,9 @@
         <label>Author</label>
         <%= f.select :user_id, User.order(:name).each.collect {|user| [user.display_name, user.id] } %>
     </div> 
+    <div class="field">        
+        <%= field f, :alternate_url %>
+    </div> 
     <div class="field">
         <label>Episode Type</label>
         <%= f.select :type_id, Episode::TYPES.each.with_index.collect {|i,ty| [i,ty]} %>

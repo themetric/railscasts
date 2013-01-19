@@ -66,5 +66,5 @@ Railscasts::Application.configure do
   ignore_exceptions = ExceptionNotifier.default_ignore_exceptions + [ActionView::MissingTemplate]
   config.middleware.use ExceptionNotifier, :email_prefix => "[ERROR] ", :sender_address => 'marklinstop@gmail.com', :exception_recipients => "marklinstop@gmail.com", :ignore_exceptions => ignore_exceptions
 
-  config.action_mailer.default_url_options = { :host => "new.marklinstop.com" }
+  config.action_mailer.default_url_options = { :host => "marklinstop.com" }
 end

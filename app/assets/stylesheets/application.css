@@ -1249,7 +1249,7 @@ h1.fancy span#subtle {
   line-height: 18px;
 }
 
-.learn-about-box .contact-me-link a {
+.learn-about-box .contact-me-link a, .contact-me-link a {
   color: white; 
   font-weight: bold; 
   padding: 10px; 

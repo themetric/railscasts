@@ -1,23 +1,28 @@
 <% title "About MarklinStop", false %>
-<% content_for :description, "As a FREE service, MarklinStop offers the evaluation and appraisal of any Marklin toy or entire collection" %>
+<% content_for :description, "As a FREE service, MarklinStop offers evaluation and appraisal of any Marklin toy or entire collection" %>
 
 <div class="content" id="about">
+  
   <div class="small-about">
     <%= image_tag "marklin_RS_800_about.jpg" %>
     Marklin RS 800 Locomotive
   </div>
-  <h1>About MarklinStop</h1>  
-  <p>The MarklinStop.com website is produced by Paul as a hobby project to circulate information about Marklin trains and the history of the Marklin company.  A team of moderators, authors, and participants also help run the website and make it fun and enjoyable.</p>
-  <%= image_tag "marklinstop-we-buy-marklin-toys.gif", :style => "width: 650px;" %>
-  <h2>Contact</h2>
-  <p>If you would like to learn more about your Marklin toy or collection, have any comments, suggestions, questions, etc, I'd love to hear from you! Please submit a message using the <%= link_to "Feedback Page", feedback_path %> or send an email to <%= link_to "marklinstop@gmail.com", "mailto:marklinstop@gmail.com" %> and I will respond as soon as possible.</p>
+  <h1 class="fancy">About MarklinStop</h1>  
+  <div id="left-content">      
+      <p>The MarklinStop.com website is produced by Paul as a hobby project to circulate information about Marklin trains and the history of the Marklin company.  A team of moderators, authors, and participants also help run the website and make it fun and enjoyable.  My mission (along with many other collectors and enthusiasts on this site) is to look at Marklin not only as a toy manufacturer, but a thread in the last 150+ years of history.  A discussion about Marklin might on the surface be about toys and trains and at a deeper level be about the devistating impacts of war, the survivability of businesses, or the economics of collectibles.  That is not to say one's hobby of collecting toys must deal with such deep and heavy discussions but certainly these things are interesting to think about and add a level of complexity to the toys and trains we collect and enjoy.
+      </p>
+      <p>I thank you for coming to this site, and <b>I encourage you to participate by <%= link_to "joining our newsletter", "http://eepurl.com/f0pUL" %> or <%= link_to "creating an account", new_user_registration_path %> to read and comment on articles.</b>
+      </p>  
+      <h2>Contact</h2>
+      <p>If you would like to learn more about your Marklin toy or collection, have any comments, suggestions, questions, etc, I'd love to hear from you! Please submit a message using the <%= link_to "Feedback Page", feedback_path %> or send an email to <%= link_to "marklinstop@gmail.com", "mailto:marklinstop@gmail.com" %> and I will respond as soon as possible.</p>
 
-  <h2>Moderators</h2>
-  <p>Thank you to all moderators who help keep the site clean and up to date:</p>
-  <ul>
-    <% for user in User.where(:moderator => true).order(:name) %>
-      <li><%= link_to user.display_name, user %></li>
-    <% end %>
-  </ul>
-  <p>If you are interested in becoming a moderator, see the <%= link_to "moderator guidelines", moderators_path %>.</p>
+      <h2>Moderators</h2>
+      <p>Thank you to all moderators who help keep the site clean and up to date:</p>
+      <ul>
+        <% for user in User.where(:moderator => true).order(:name) %>
+          <li><%= link_to user.display_name, user %></li>
+        <% end %>
+      </ul>
+      <p>If you are interested in becoming a moderator or author, see the <%= link_to "guidelines", moderators_path %>.</p>
+  </div>
 </div>

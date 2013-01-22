@@ -16,8 +16,8 @@
       <h2>Contact</h2>
       <p>If you would like to learn more about your Marklin toy or collection, have any comments, suggestions, questions, etc, I'd love to hear from you! Please submit a message using the <%= link_to "Feedback Page", feedback_path %> or send an email to <%= link_to "marklinstop@gmail.com", "mailto:marklinstop@gmail.com" %> and I will respond as soon as possible.</p>
 
-      <h2>Moderators</h2>
-      <p>Thank you to all moderators who help keep the site clean and up to date:</p>
+      <h2>Moderators & Authors</h2>
+      <p>Thank you to all moderators and authors who help keep the site up to date and filled with interesting information:</p>
       <ul>
         <% for user in User.where(:moderator => true).order(:name) %>
           <li><%= link_to user.display_name, user %></li>

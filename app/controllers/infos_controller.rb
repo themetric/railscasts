@@ -6,7 +6,7 @@ class InfosController < ApplicationController
   end
   
   def admin   
-    @users = User.all 
+    @users = User.order("id DESC").all 
   end
 
   def we_buy

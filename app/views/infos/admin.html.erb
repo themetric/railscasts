@@ -4,7 +4,7 @@
     <h1 class="fancy">Admin</h1>  
     <table>
         <thead>
-            <% User.attribute_names.keep_if{|name| User::DISPLAY_ATTRS.include?(name)}.each do |attr| %>
+            <% User.order("id DESC").attribute_names.keep_if{|name| User::DISPLAY_ATTRS.include?(name)}.each do |attr| %>
                 <th>
                     <%= User.human_attribute_name(attr) %>
                 </th>
@@ -14,7 +14,7 @@
             <% @users.each do |user| %>
                 <tr>
                     <% user.attributes.select {|key,v| User::DISPLAY_ATTRS.include?(key)}.values.each do |attr| %>
-                        <td><%= attr %></td>
+                        <td><%= link_to attr, user_path(user) unless attr.nil? || attr == false %></td>
                     <% end %>
                 </tr>
             <% end %>        

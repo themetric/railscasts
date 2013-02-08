@@ -15,8 +15,11 @@ Railscasts::Application.routes.draw do
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
 
   devise_for :users 
+  
   resources :users do 
-    put "ban" => "users#ban", :as => :ban        
+    member do 
+        put "ban" => "users#ban", :as => :ban        
+    end 
   end 
     
   resources :comments

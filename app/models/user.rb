@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
    
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :site_url, :email_on_reply
   
+  DISPLAY_ATTRS = ['id', 'name', 'email', 'site_url', 'admin', 'moderator', 'created_at', 'sign_in_count', 'banned_at', 'email_on_reply', 'confirmed_at']
+  
   before_create { generate_token(:token) }
   has_many :comments
   has_many :episodes 

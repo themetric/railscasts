@@ -1523,3 +1523,49 @@ input#user_remember_me {
     background-position: -168px 0;
 }
 
+/*** ADMIN ***/
+
+.content#admin table {
+    width: 100%; 
+    border-color: #DFDFDF;
+    background-color: #F9F9F9;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    color: #333;
+    border-spacing: 0;
+    clear: both;
+    margin: 0;
+}
+
+.content#admin table thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    padding: 10px 0 0;
+    background: #F1F1F1;
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#ECECEC),to(#F9F9F9));
+    background-image: -webkit-linear-gradient(bottom,#ECECEC,#F9F9F9);
+    background-image: -moz-linear-gradient(bottom,#ECECEC,#F9F9F9);
+    background-image: -o-linear-gradient(bottom,#ECECEC,#F9F9F9);
+    background-image: linear-gradient(to top,#ECECEC,#F9F9F9);
+    border-top-color: white;
+    border-bottom-color: #DFDFDF;
+}
+
+.content#admin table thead th {
+    border-top-color: white;
+    border-bottom-color: #DFDFDF;
+    text-align: left;
+    line-height: 1.3em;
+    font-size: 14px;
+    padding: 4px 7px 2px;    
+}
+
+.content#admin table tbody td {
+font-size: 12px;
+padding: 4px 7px 2px;
+vertical-align: top;
+}
+

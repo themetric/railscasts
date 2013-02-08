@@ -3,9 +3,10 @@ Railscasts::Application.routes.draw do
   root :to => "episodes#index"
 
   match "auth/:provider/callback" => "users#create"
-  match "about" => "info#about", :as => "about"
-  match "we-buy" => "info#we_buy", :as => "we_buy"
-  match "moderators" => "info#moderators", :as => "moderators"
+  match "about" => "infos#about", :as => "about"
+  match "we-buy" => "infos#we_buy", :as => "we_buy"
+  match "admin" => "infos#admin", :as => "admin" 
+  match "moderators" => "infos#moderators", :as => "moderators"
   match "login" => "users#login", :as => "login"
   match "logout" => "users#logout", :as => "logout"
   match "feedback" => "feedback_messages#new", :as => "feedback"

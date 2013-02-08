@@ -39,8 +39,8 @@ class Ability
       end
 
       if user.admin?
-        # Can create episodes, etc. 
-        can :manage, :all
+        # Can create episodes, view admin page, etc. 
+        can :manage, :all        
       end
     end
   end

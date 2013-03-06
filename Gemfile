@@ -24,6 +24,7 @@ gem "aws-s3", :require => "aws/s3"
 gem "acts_as_list"
 gem "thin"
 gem "pg_search"
+gem "unicorn" 
 
 
 group :development, :test do

@@ -938,6 +938,22 @@ input#search, input#comment_search {
 
 /*** COMMENTS ***/
 
+.label {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 13px;
+  padding: 0 5px;
+  line-height: 24px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.label-success {
+  background-color: #6CC644; 
+}
+
 #comments {
   margin-top: 10px;
 }

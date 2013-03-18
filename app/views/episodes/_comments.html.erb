@@ -1,4 +1,7 @@
 <div id="comments">
   <%= nested_comments @episode.comments.includes(:user).arrange(:order => "created_at asc") %>
+  <div class="activity" style="margin: 30px 0px 30px 83px; ">      
+        <span class="label label-success">Mention</span> <%= display_link(Episode.first.author, false) %> linked to this episode in a <%= link_to "news story", "" %> two days ago 
+  </div>
   <%= render "comments/form" %>
 </div>

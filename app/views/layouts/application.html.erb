@@ -67,8 +67,8 @@
 
     <div id="nav_bar">
       <ul class="nav horizontal">
-        <li <%= active?(root_url) %>><%= link_to_unless_current "Browse Episodes", root_url %></li>
-        <li <%= active?(we_buy_path) %> id="we_buy"><div id="we_buy">$</div><%= link_to_unless_current "Purchase & Sale", we_buy_path %></li>
+        <li <%= active?(root_url) %>><%= link_to_unless_current "Episodes", root_url %></li>
+        <li <%= active?(we_buy_path) %> id="we_buy"><div id="we_buy">$</div><%= link_to_unless_current "Purchase", we_buy_path %></li>
         <li <%= active?(about_path) %>><%= link_to_unless_current "About", about_path %></li>
         <li <%= active?(feedback_path) %>><%= link_to_unless_current "Contact", feedback_path %></li>
         <% if can? :index, :comments %>
@@ -76,7 +76,7 @@
         <% end %>
       </ul>
       <%= form_tag episodes_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search], :size => 35 %>
+        <%= text_field_tag :search, params[:search], :size => 25 %>
         <%= submit_tag "Search Episodes", :name => nil %>
       <% end %>
     </div>

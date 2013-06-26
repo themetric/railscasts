@@ -58,6 +58,6 @@ class User < ActiveRecord::Base
   end
 
   def banned?
-    banned_at
+    self.banned_at.present? 
   end
 end
